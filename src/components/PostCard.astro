@@ -1,0 +1,16 @@
+---
+const { post } = Astro.props as { post: { id: number; title: string; body: string } };
+const imgUrl = `https://picsum.photos/seed/${post.id}/600/400`;
+---
+
+<a href={`/blog/${post.id}`} class="block group rounded-lg overflow-hidden shadow hover:shadow-lg transition">
+  <img src={imgUrl} alt={post.title} class="w-full h-40 sm:h-48 object-cover" loading="lazy" />
+  <div class="p-4 bg-white">
+    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-orange-600 mb-2">
+      {post.title}
+    </h3>
+    <p class="text-sm text-gray-600 line-clamp-3">
+      {post.body.length > 120 ? `${post.body.slice(0, 120)}…` : post.body}
+    </p>
+  </div>
+</a> 

@@ -1,0 +1,13 @@
+---
+const { post } = Astro.props as { post: { id: number; title: string } };
+const imgUrl = `https://picsum.photos/seed/${post.id}/120/120`;
+---
+
+<li class="flex gap-3">
+  <img src={imgUrl} alt={post.title} class="w-16 h-16 object-cover rounded" loading="lazy" />
+  <div class="flex flex-col justify-center">
+    <a href={`/blog/${post.id}`} class="text-sm font-medium text-gray-800 hover:text-orange-600">
+      {post.title}
+    </a>
+  </div>
+</li> 
