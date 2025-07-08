@@ -15,21 +15,26 @@
   "dependencies": {
     "@astro-react/ui-button": "workspace:*",
     "@astro-react/ui-saas-signup": "workspace:*",
+    "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/react": "^4.3.0",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/tailwind": "^6.0.2",
     "astro": "^5.11.0",
-    "tailwindcss": "^3.3.3",
-    "vazirmatn": "^33.0.3",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.8.3",
+    "vazirmatn": "^33.0.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.41.0",
+    "@types/node": "^24.0.11",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "rimraf": "^5.0.5",
-    "vitest": "^1.2.0",
-    "@playwright/test": "^1.41.0"
+    "vitest": "^1.2.0"
   }
-} 
+}
