@@ -18,6 +18,9 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
+  "dependencies": {
+    "@astro-react/design-tokens": "workspace:*"
+  },
   "devDependencies": {
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",

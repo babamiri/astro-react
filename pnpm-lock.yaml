@@ -79,7 +79,23 @@ importers:
         specifier: ^1.2.0
         version: 1.6.1
 
+  packages/design-tokens:
+    devDependencies:
+      rimraf:
+        specifier: ^5.0.5
+        version: 5.0.10
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.0(postcss@8.5.6)(typescript@5.8.3)
+      typescript:
+        specifier: ^5.0.0
+        version: 5.8.3
+
   packages/ui-button:
+    dependencies:
+      '@astro-react/design-tokens':
+        specifier: workspace:*
+        version: link:../design-tokens
     devDependencies:
       '@types/react':
         specifier: ^19.1.0
@@ -114,6 +130,9 @@ importers:
 
   packages/ui-saas-signup:
     dependencies:
+      '@astro-react/design-tokens':
+        specifier: workspace:*
+        version: link:../design-tokens
       '@astro-react/ui-button':
         specifier: workspace:*
         version: link:../ui-button
