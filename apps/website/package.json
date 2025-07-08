@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astro-react/ui-button": "workspace:*",
+    "@astro-react/ui-saas-signup": "workspace:*",
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/react": "^4.3.0",
     "@astrojs/rss": "^4.0.12",
@@ -17,8 +18,8 @@
     "astro": "^5.11.0",
     "tailwindcss": "^3.3.3",
     "vazirmatn": "^33.0.3",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
