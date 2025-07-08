@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: theme('colors.orange.500');
+    --color-secondary: theme('colors.brown.300');
+  }
+
+  body {
+    @apply bg-brown-100 text-gray-800;
+    font-family: theme('fontFamily.sans');
+  }
+
+  h1, h2, h3 {
+    @apply text-orange-700 font-bold;
+  }
+}
+
+body {
+  direction: rtl;
+  font-family: 'Vazirmatn', sans-serif;
+} 

@@ -1,64 +1,0 @@
----
-import Layout from '../layouts/Layout.astro';
-import CTAButton from '../components/CTAButton.tsx';
-import SaaSSignup from '../components/SaaSSignup.tsx';
-
-const features = [
-  {
-    title: 'ویژگی اول',
-    description: 'توضیحات کوتاه درباره اولین ویژگی محصول',
-    icon: '🌟'
-  },
-  {
-    title: 'ویژگی دوم', 
-    description: 'توضیحات کوتاه درباره دومین ویژگی محصول',
-    icon: '⚡'
-  },
-  {
-    title: 'ویژگی سوم',
-    description: 'توضیحات کوتاه درباره سومین ویژگی محصول',
-    icon: '🔒'
-  }
-];
----
-
-<Layout title="صفحه اصلی" description="صفحه اصلی محصول فوق العاده ما - راه حلی نوآورانه برای نیازهای شما">
-  <!-- Hero Section -->
-  <section class="bg-brown-100 py-20">
-    <div class="container mx-auto px-4 flex flex-col items-center text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-orange-800 mb-6">
-        محصول فوق العاده ما
-      </h1>
-        <p class="text-xl text-brown-600 mb-8 max-w-2xl">
-        راه حل نوآورانه ما برای مشکل
-      </p>
-      <CTAButton client:load text="همین حالا شروع کنید" />
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">ویژگی‌های ما</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {features.map((feature) => (
-          <div class="bg-brown-50 p-6 rounded-lg shadow-sm border border-brown-200">
-            <div class="text-4xl mb-4 text-orange-600">{feature.icon}</div>
-            <h3 class="text-xl font-bold text-orange-700 mb-2">{feature.title}</h3>
-            <p class="text-brown-600">{feature.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- SaaS Signup Section -->
-  <section class="py-20 bg-brown-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-orange-800 mb-12">همین حالا سرویس SaaS خود را راه‌اندازی کنید</h2>
-      <div class="max-w-3xl mx-auto">
-        <SaaSSignup client:load />
-      </div>
-    </div>
-  </section>
-</Layout>

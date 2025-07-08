@@ -1,24 +1,19 @@
 {
-  "name": "astro-react",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "astro-react-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "pnpm --filter website dev",
+    "build": "turbo run build",
+    "build:ui": "pnpm --filter @astro-react/ui-button build",
+    "dev:ui": "pnpm --filter @astro-react/ui-button dev",
+    "dev:all": "pnpm build:ui && pnpm dev"
   },
-  "dependencies": {
-    "@astrojs/mdx": "^4.3.0",
-    "@astrojs/react": "^4.3.0",
-    "@astrojs/rss": "^4.0.12",
-    "@astrojs/tailwind": "^6.0.2",
-    "astro": "^5.11.0",
-    "tailwindcss": "^3.3.3",
-    "vazirmatn": "^33.0.3"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.6"
+    "turbo": "^1.10.0"
   }
 }
