@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTAButton from '../components/CTAButton.tsx';
+import SaaSSignup from '../components/SaaSSignup.tsx';
 
 const features = [
   {
@@ -47,6 +48,16 @@ const features = [
             <p class="text-brown-600">{feature.description}</p>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SaaS Signup Section -->
+  <section class="py-20 bg-brown-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-orange-800 mb-12">همین حالا سرویس SaaS خود را راه‌اندازی کنید</h2>
+      <div class="max-w-3xl mx-auto">
+        <SaaSSignup client:load />
       </div>
     </div>
   </section>
