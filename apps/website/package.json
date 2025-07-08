@@ -6,7 +6,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "clean": "rimraf dist .astro",
+    "lint": "eslint src --ext .ts,.tsx,.astro",
+    "typecheck": "astro check && tsc --noEmit",
+    "test": "vitest",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@astro-react/ui-button": "workspace:*",
@@ -23,6 +27,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.6"
+    "postcss": "^8.5.6",
+    "rimraf": "^5.0.5",
+    "vitest": "^1.2.0",
+    "@playwright/test": "^1.41.0"
   }
 } 

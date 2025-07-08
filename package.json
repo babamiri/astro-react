@@ -6,14 +6,34 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "pnpm --filter website dev",
+    "dev": "turbo run dev --parallel",
+    "dev:website": "turbo run dev --filter=website",
+    "dev:packages": "turbo run dev --filter='./packages/*'",
     "build": "turbo run build",
-    "build:ui": "pnpm --filter @astro-react/ui-button build",
-    "dev:ui": "pnpm --filter @astro-react/ui-button dev",
-    "dev:all": "pnpm build:ui && pnpm dev"
+    "build:website": "turbo run build --filter=website",
+    "build:packages": "turbo run build --filter='./packages/*'",
+    "clean": "turbo run clean && rimraf node_modules",
+    "clean:workspace": "pnpm -r exec rimraf node_modules dist .turbo",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx,json}\"",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "turbo run build && changeset publish"
   },
   "dependencies": {},
   "devDependencies": {
-    "turbo": "^1.10.0"
+    "turbo": "^1.10.0",
+    "@changesets/cli": "^2.27.1",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3"
+  },
+  "packageManager": "pnpm@8.15.1",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
   }
 }
