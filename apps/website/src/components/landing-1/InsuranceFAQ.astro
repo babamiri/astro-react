@@ -1,0 +1,65 @@
+---
+// FAQ section component
+const faqs = [
+  {
+    question: "آیا می‌توانم بیمه خودرو را به صورت اقساطی پرداخت کنم؟",
+    answer: "بله، امکان پرداخت اقساطی تا ۱۲ ماه بدون کارمزد اضافی وجود دارد."
+  },
+  {
+    question: "بیمه آتش‌سوزی رایگان چگونه کار می‌کند؟",
+    answer: "با خرید هر بیمه بدنه، بیمه آتش‌سوزی و سرقت به صورت کاملاً رایگان ارائه می‌شود."
+  },
+  {
+    question: "چقدر طول می‌کشد تا بیمه‌نامه صادر شود؟",
+    answer: "فرآیند صدور بیمه‌نامه حداکثر ۵ دقیقه طول می‌کشد و به صورت آنلاین انجام می‌شود."
+  },
+  {
+    question: "آیا امکان لغو بیمه وجود دارد؟",
+    answer: "بله، طبق قوانین بیمه، امکان لغو و استرداد وجه متناسب با مدت باقی‌مانده وجود دارد."
+  }
+];
+---
+
+<section class="py-20 bg-white fade-in-on-scroll">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">سوالات متداول</h2>
+      <p class="text-xl text-gray-600">پاسخ سوالات رایج درباره بیمه خودرو</p>
+    </div>
+
+    <div class="space-y-6">
+      {faqs.map((faq, index) => (
+        <div 
+          class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors faq-item"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
+          <p class="text-gray-600 leading-relaxed">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes faq-fade {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .faq-item {
+    opacity: 0;
+    animation: faq-fade 0.6s ease-out forwards;
+  }
+
+  .faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+</style> 

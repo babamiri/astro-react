@@ -1,0 +1,66 @@
+---
+// Call-to-action section component
+---
+
+<section class="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white relative overflow-hidden fade-in-on-scroll">
+  <!-- Animated Background Elements -->
+  <div class="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full animate-float"></div>
+  <div class="absolute bottom-16 right-20 w-24 h-24 bg-orange-400/20 rounded-full animate-float-delayed"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 animate-fadeInUp">
+      همین حالا بیمه خودرو خود را تهیه کنید
+    </h2>
+    
+    <p class="text-xl mb-8 text-blue-100 animate-fadeInUp" style="animation-delay: 0.2s;">
+      تنها با چند کلیک و در کمتر از ۵ دقیقه
+    </p>
+    
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8 animate-fadeInUp" style="animation-delay: 0.4s;">
+      <button class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover-scale">
+        شروع کنید
+      </button>
+      
+      <button class="border-2 border-white hover:bg-white hover:text-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover-scale">
+        مشاوره رایگان
+      </button>
+    </div>
+    
+    <div class="text-blue-100 animate-fadeInUp" style="animation-delay: 0.6s;">
+      <p>یا با ما تماس بگیرید: <span class="font-bold text-white">۰۲۱-۱۲۳۴۵۶۷۸</span></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) scale(1) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-30px) scale(1.2) rotate(180deg);
+    }
+  }
+
+  @keyframes float-delayed {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    50% {
+      transform: translateY(30px) translateX(20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float-delayed 6s ease-in-out infinite;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+</style> 

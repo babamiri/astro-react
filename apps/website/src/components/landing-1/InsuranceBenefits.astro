@@ -1,0 +1,113 @@
+---
+// Benefits section component
+const benefits = [
+  {
+    icon: "🛡️",
+    title: "پوشش کامل",
+    description: "پوشش جامع شامل شخص ثالث، بدنه، آتش‌سوزی و سرقت",
+    color: "from-blue-500 to-blue-600"
+  },
+  {
+    icon: "🧮",
+    title: "محاسبه دقیق",
+    description: "ماشین حساب هوشمند با در نظر گیری تمام عوامل تأثیرگذار",
+    color: "from-green-500 to-green-600"
+  },
+  {
+    icon: "🎁",
+    title: "هدیه رایگان",
+    description: "بیمه آتش‌سوزی و سرقت به صورت کاملاً رایگان با هر خرید",
+    color: "from-orange-500 to-orange-600"
+  },
+  {
+    icon: "💳",
+    title: "پرداخت آسان",
+    description: "امکان پرداخت اقساطی تا ۱۲ ماه بدون کارمزد اضافی",
+    color: "from-purple-500 to-purple-600"
+  },
+  {
+    icon: "📞",
+    title: "پشتیبانی ۲۴/۷",
+    description: "تیم پشتیبانی حرفه‌ای در خدمت شما در تمام ساعات شبانه‌روز",
+    color: "from-red-500 to-red-600"
+  },
+  {
+    icon: "🚗",
+    title: "خدمات جانبی",
+    description: "امداد جاده‌ای، خودرو جایگزین و خدمات تعمیرگاهی",
+    color: "from-indigo-500 to-indigo-600"
+  }
+];
+---
+
+<section class="py-20 bg-gray-50 fade-in-on-scroll">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        چرا بیمه سریع را انتخاب کنید؟
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        با تجربه بیش از ۱۵ سال در صنعت بیمه، بهترین خدمات را برای شما فراهم می‌کنیم
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {benefits.map((benefit, index) => (
+        <div 
+          class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group hover-lift benefit-card"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <div class="text-center">
+            <div class="mb-4 relative icon-container">
+              <div class={`absolute inset-0 bg-gradient-to-r ${benefit.color} rounded-full opacity-20 group-hover:opacity-30 transition-opacity`}></div>
+              <div class="text-4xl relative z-10 animate-bounce-gentle">{benefit.icon}</div>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{benefit.title}</h3>
+            <p class="text-gray-600 leading-relaxed">{benefit.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes bounce-gentle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s ease-in-out infinite;
+  }
+
+  .benefit-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-10px) rotateY(5deg);
+    transition: transform 0.3s ease;
+  }
+
+  .icon-container:hover .animate-bounce-gentle {
+    animation-duration: 0.6s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style> 

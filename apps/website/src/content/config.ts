@@ -17,4 +17,4 @@ export const collections = {
   blog: blogCollection,
 };
 
-export type BlogEntry = typeof blogSchema; 
+export type BlogEntry = typeof blogSchema;

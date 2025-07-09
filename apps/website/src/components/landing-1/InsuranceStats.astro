@@ -1,0 +1,463 @@
+---
+// Stats section component
+---
+
+<section class="py-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white stats-section">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 animate-on-scroll" data-delay="0">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 animate-text-glow">
+        اعداد و ارقام ما
+      </h2>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        با اعتماد هزاران مشتری، همیشه در خدمت شما هستیم
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-4 gap-8 text-center stagger-container">
+      <div class="stat-card animate-on-scroll" data-delay="0.1">
+        <div class="stat-icon-wrapper">
+          <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+        </div>
+        <div class="stat-number">
+          <span class="counter" data-target="50000">0</span>
+          <span class="stat-suffix">+</span>
+        </div>
+        <div class="stat-label">مشتری راضی</div>
+        <div class="stat-description">در سراسر کشور</div>
+      </div>
+      
+      <div class="stat-card animate-on-scroll" data-delay="0.2">
+        <div class="stat-icon-wrapper">
+          <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+          </svg>
+        </div>
+        <div class="stat-number">
+          <span class="counter" data-target="15">0</span>
+          <span class="stat-suffix"></span>
+        </div>
+        <div class="stat-label">سال تجربه</div>
+        <div class="stat-description">در صنعت بیمه</div>
+      </div>
+      
+      <div class="stat-card animate-on-scroll" data-delay="0.3">
+        <div class="stat-icon-wrapper">
+          <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div class="stat-number">
+          <span class="counter" data-target="5">0</span>
+          <span class="stat-suffix"></span>
+        </div>
+        <div class="stat-label">دقیقه صدور</div>
+        <div class="stat-description">سریع‌ترین سرویس</div>
+      </div>
+      
+      <div class="stat-card animate-on-scroll" data-delay="0.4">
+        <div class="stat-icon-wrapper">
+          <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+          </svg>
+        </div>
+        <div class="stat-number">
+          <span class="counter" data-target="98">0</span>
+          <span class="stat-suffix">%</span>
+        </div>
+        <div class="stat-label">درصد رضایت</div>
+        <div class="stat-description">مشتریان وفادار</div>
+      </div>
+    </div>
+    
+    <!-- Additional Stats Row -->
+    <div class="grid md:grid-cols-3 gap-8 mt-16 text-center stagger-container">
+      <div class="mini-stat animate-on-scroll" data-delay="0.5">
+        <div class="mini-stat-icon">⚡</div>
+        <div class="mini-stat-number">
+          <span class="counter" data-target="24">0</span>
+          <span>/</span>
+          <span class="counter" data-target="7">0</span>
+        </div>
+        <div class="mini-stat-label">پشتیبانی</div>
+      </div>
+      
+      <div class="mini-stat animate-on-scroll" data-delay="0.6">
+        <div class="mini-stat-icon">🏆</div>
+        <div class="mini-stat-number">
+          <span class="counter" data-target="12">0</span>
+          <span class="stat-suffix">+</span>
+        </div>
+        <div class="mini-stat-label">جایزه ملی</div>
+      </div>
+      
+      <div class="mini-stat animate-on-scroll" data-delay="0.7">
+        <div class="mini-stat-icon">🌟</div>
+        <div class="mini-stat-number">
+          <span class="counter" data-target="4">0</span>
+          <span class="stat-suffix">.</span>
+          <span class="counter" data-target="9">0</span>
+        </div>
+        <div class="mini-stat-label">امتیاز کاربران</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #111827 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 10s ease infinite;
+  }
+
+  .stats-section > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-text-glow {
+    animation: text-glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes text-glow {
+    from {
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    }
+    to {
+      text-shadow: 0 0 30px rgba(59, 130, 246, 0.6), 0 0 40px rgba(59, 130, 246, 0.4);
+    }
+  }
+
+  /* Stat Cards */
+  .stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .stat-card:hover::before {
+    opacity: 1;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .stat-icon-wrapper {
+    position: relative;
+    margin: 0 auto 1.5rem;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    animation: icon-float 3s ease-in-out infinite;
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    color: white;
+    animation: icon-rotate 20s linear infinite;
+  }
+
+  @keyframes icon-float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(180deg);
+    }
+  }
+
+  @keyframes icon-rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #f97316;
+    margin-bottom: 0.5rem;
+    position: relative;
+    line-height: 1;
+  }
+
+  .counter {
+    display: inline-block;
+    animation: counter-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes counter-glow {
+    from {
+      text-shadow: 0 0 10px rgba(249, 115, 22, 0.3);
+    }
+    to {
+      text-shadow: 0 0 20px rgba(249, 115, 22, 0.6), 0 0 30px rgba(249, 115, 22, 0.4);
+    }
+  }
+
+  .stat-suffix {
+    color: #fb923c;
+    font-size: 2.5rem;
+    animation: suffix-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes suffix-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
+
+  .stat-label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #e5e7eb;
+    margin-bottom: 0.5rem;
+    animation: label-fade 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes label-fade {
+    from {
+      opacity: 0.8;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .stat-description {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    opacity: 0.8;
+  }
+
+  /* Mini Stats */
+  .mini-stat {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .mini-stat:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(59, 130, 246, 0.2);
+  }
+
+  .mini-stat-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    animation: mini-icon-bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes mini-icon-bounce {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .mini-stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3b82f6;
+    margin-bottom: 0.5rem;
+  }
+
+  .mini-stat-label {
+    font-size: 0.875rem;
+    color: #d1d5db;
+    font-weight: 500;
+  }
+
+  /* Scroll Animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+  }
+
+  .animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stagger-container .animate-on-scroll {
+    transition-delay: 0s;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .stat-card {
+      padding: 1.5rem;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+    }
+    
+    .stat-icon-wrapper {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .stat-icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+</style>
+
+<script>
+  // Animated Counter Function
+  function animateCounter(element, target, duration = 2000) {
+    const start = 0;
+    const startTime = performance.now();
+    const suffix = element.nextElementSibling?.textContent || '';
+    
+    function updateCounter(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const current = Math.floor(easeOutQuart * target);
+      
+      element.textContent = current.toLocaleString('fa-IR');
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        // Add final flourish animation
+        element.style.animation = 'counter-complete 0.5s ease';
+      }
+    }
+    
+    requestAnimationFrame(updateCounter);
+  }
+
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const delay = parseFloat(element.dataset.delay) || 0;
+        
+        setTimeout(() => {
+          element.classList.add('animate-in');
+          
+          // Trigger counter animation for stat cards
+          const counters = element.querySelectorAll('.counter');
+          counters.forEach(counter => {
+            const target = parseInt(counter.dataset.target);
+            if (target) {
+              animateCounter(counter, target, 2000);
+            }
+          });
+        }, delay * 1000);
+        
+        observer.unobserve(element);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements with animate-on-scroll class
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Add counter complete animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes counter-complete {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Add loading animation
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+      statsSection.style.opacity = '0';
+      statsSection.style.transform = 'translateY(20px)';
+      
+      setTimeout(() => {
+        statsSection.style.transition = 'all 0.8s ease';
+        statsSection.style.opacity = '1';
+        statsSection.style.transform = 'translateY(0)';
+      }, 200);
+    }
+  });
+</script> 

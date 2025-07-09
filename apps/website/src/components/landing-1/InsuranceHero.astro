@@ -1,0 +1,690 @@
+---
+// Hero component for insurance landing page
+---
+
+<section class="relative bg-gradient-to-l from-blue-600 to-blue-800 text-white overflow-hidden min-h-screen flex items-center hero-section">
+  <!-- Animated Background with Parallax -->
+  <div class="absolute inset-0 opacity-40 parallax-bg" id="hero-bg">
+    <img 
+      src="https://images.pexels.com/photos/1028742/pexels-photo-1028742.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1" 
+      alt="Car Background" 
+      class="w-full h-full object-cover parallax-image"
+      loading="eager"
+    />
+  </div>
+
+  <!-- Enhanced Background Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-blue-600/60 to-blue-800/60 animate-gradient-shift"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-900/30"></div>
+
+  <!-- Floating Elements with Advanced Animations -->
+  <div class="absolute top-20 left-10 w-20 h-20 bg-orange-400/20 rounded-full floating-element floating-element-1"></div>
+  <div class="absolute top-40 right-20 w-12 h-12 bg-blue-300/30 rounded-full floating-element floating-element-2"></div>
+  <div class="absolute bottom-32 right-16 w-16 h-16 bg-blue-300/20 rounded-full floating-element floating-element-3"></div>
+  <div class="absolute bottom-20 left-20 w-14 h-14 bg-orange-300/25 rounded-full floating-element floating-element-4"></div>
+  
+  <!-- Animated Particles -->
+  <div class="particles-container">
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+    <div class="particle particle-5"></div>
+  </div>
+  
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 z-10">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8 stagger-container">
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight stagger-item animate-on-scroll" data-delay="0">
+          <span class="gradient-text">
+            بیمه خودرو
+          </span>
+          <br />
+          <span class="inline-block animate-text-wave">تنها در ۵ دقیقه!</span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-blue-100 leading-relaxed stagger-item animate-on-scroll" data-delay="0.2">
+          سریع‌ترین و مطمئن‌ترین راه برای خرید بیمه خودرو آنلاین
+          <br />
+          <span class="animate-text-glow">با تخفیف‌های ویژه و هدیه بیمه آتش‌سوزی رایگان</span>
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 stagger-item animate-on-scroll" data-delay="0.4">
+          <button class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg btn-primary">
+            <span class="btn-text">شروع کنید</span>
+            <svg class="inline h-5 w-5 mr-2 btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+            </svg>
+          </button>
+          
+          <button class="border-2 border-white hover:bg-white hover:text-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 btn-secondary">
+            <svg class="inline h-5 w-5 ml-2 btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            <span class="btn-text">تماس فوری</span>
+          </button>
+        </div>
+        
+        <div class="flex items-center space-x-8 space-x-reverse text-blue-100 stagger-item animate-on-scroll" data-delay="0.6">
+          <div class="flex items-center feature-item" data-delay="0">
+            <svg class="h-5 w-5 text-green-400 ml-2 feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="feature-text">تأیید فوری</span>
+          </div>
+          <div class="flex items-center feature-item" data-delay="0.1">
+            <svg class="h-5 w-5 text-green-400 ml-2 feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="feature-text">پرداخت اقساطی</span>
+          </div>
+          <div class="flex items-center feature-item" data-delay="0.2">
+            <svg class="h-5 w-5 text-green-400 ml-2 feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="feature-text">هدیه رایگان</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="relative animate-on-scroll" data-delay="0.3">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 pricing-card">
+          <div class="text-center mb-6">
+            <h3 class="text-2xl font-bold mb-2 animate-text-pulse">
+              پیشنهاد ویژه امروز
+            </h3>
+            <p class="text-blue-100">تا ۵۰٪ تخفیف + هدیه بیمه آتش‌سوزی</p>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="flex justify-between items-center pricing-item" data-delay="0.1">
+              <span>بیمه شخص ثالث</span>
+              <span class="font-bold text-orange-400 animate-price">۲,۵۰۰,۰۰۰ تومان</span>
+            </div>
+            <div class="flex justify-between items-center pricing-item" data-delay="0.2">
+              <span>بیمه بدنه</span>
+              <span class="font-bold text-orange-400 animate-price">۸,۰۰۰,۰۰۰ تومان</span>
+            </div>
+            <div class="flex justify-between items-center pricing-item" data-delay="0.3">
+              <span>بیمه آتش‌سوزی</span>
+              <span class="font-bold text-green-400 animate-special-price">رایگان!</span>
+            </div>
+            
+            <div class="border-t border-white/20 pt-4 pricing-item" data-delay="0.4">
+              <div class="flex justify-between items-center text-xl font-bold">
+                <span>قیمت نهایی</span>
+                <span class="text-orange-400 animate-final-price">۵,۲۵۰,۰۰۰ تومان</span>
+              </div>
+              <p class="text-sm text-blue-100 mt-2">قابل پرداخت در ۶ قسط</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Advanced Floating Animations */
+  .floating-element {
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  .floating-element-1 {
+    animation-name: float-complex-1;
+    animation-delay: 0s;
+  }
+
+  .floating-element-2 {
+    animation-name: float-complex-2;
+    animation-delay: 1s;
+  }
+
+  .floating-element-3 {
+    animation-name: float-complex-3;
+    animation-delay: 2s;
+  }
+
+  .floating-element-4 {
+    animation-name: float-complex-4;
+    animation-delay: 3s;
+  }
+
+  @keyframes float-complex-1 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translateY(-20px) rotate(90deg) scale(1.1);
+    }
+    50% {
+      transform: translateY(-40px) rotate(180deg) scale(1);
+    }
+    75% {
+      transform: translateY(-20px) rotate(270deg) scale(0.9);
+    }
+  }
+
+  @keyframes float-complex-2 {
+    0%, 100% {
+      transform: translateX(0px) translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateX(15px) translateY(-15px) rotate(45deg);
+    }
+    50% {
+      transform: translateX(30px) translateY(-30px) rotate(90deg);
+    }
+    75% {
+      transform: translateX(15px) translateY(-15px) rotate(135deg);
+    }
+  }
+
+  @keyframes float-complex-3 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-25px) rotate(180deg) scale(1.2);
+      opacity: 1;
+    }
+  }
+
+  @keyframes float-complex-4 {
+    0%, 100% {
+      transform: translateX(0px) translateY(0px) scale(1);
+    }
+    33% {
+      transform: translateX(-10px) translateY(-20px) scale(1.1);
+    }
+    66% {
+      transform: translateX(10px) translateY(-15px) scale(0.9);
+    }
+  }
+
+  /* Particles Animation */
+  .particles-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: particle-float 15s linear infinite;
+  }
+
+  .particle-1 {
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .particle-2 {
+    left: 30%;
+    animation-delay: 3s;
+  }
+
+  .particle-3 {
+    left: 50%;
+    animation-delay: 6s;
+  }
+
+  .particle-4 {
+    left: 70%;
+    animation-delay: 9s;
+  }
+
+  .particle-5 {
+    left: 90%;
+    animation-delay: 12s;
+  }
+
+  @keyframes particle-float {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Gradient Animations */
+  .animate-gradient-shift {
+    background: linear-gradient(45deg, #2563eb, #1e40af, #3b82f6, #2563eb);
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .gradient-text {
+    background: linear-gradient(45deg, #fb923c, #f97316, #ea580c, #fb923c);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-text 3s ease infinite;
+  }
+
+  @keyframes gradient-text {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Text Animations */
+  .animate-text-wave {
+    display: inline-block;
+    animation: text-wave 2s ease-in-out infinite;
+  }
+
+  @keyframes text-wave {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .animate-text-glow {
+    animation: text-glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes text-glow {
+    from {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+    to {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  .animate-text-pulse {
+    animation: text-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes text-pulse {
+    0%, 100% {
+      transform: scale(1);
+      color: #ffffff;
+    }
+    50% {
+      transform: scale(1.05);
+      color: #fbbf24;
+    }
+  }
+
+  /* Button Animations */
+  .btn-primary {
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.4);
+  }
+
+  .btn-primary:hover .btn-icon {
+    animation: icon-bounce 0.6s ease;
+  }
+
+  .btn-secondary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+  }
+
+  @keyframes icon-bounce {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-5px);
+    }
+  }
+
+  /* Feature Items Animation */
+  .feature-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: feature-appear 0.6s ease forwards;
+  }
+
+  .feature-item:nth-child(1) {
+    animation-delay: 0.8s;
+  }
+
+  .feature-item:nth-child(2) {
+    animation-delay: 1s;
+  }
+
+  .feature-item:nth-child(3) {
+    animation-delay: 1.2s;
+  }
+
+  @keyframes feature-appear {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .feature-item:hover {
+    transform: translateY(-2px) scale(1.05);
+    transition: all 0.3s ease;
+  }
+
+  .feature-icon {
+    animation: icon-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes icon-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  /* Pricing Card Animations */
+  .pricing-card {
+    transform: translateY(0);
+    transition: all 0.3s ease;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .pricing-item {
+    opacity: 0;
+    transform: translateX(20px);
+    animation: pricing-item-appear 0.6s ease forwards;
+  }
+
+  .pricing-item:nth-child(1) {
+    animation-delay: 0.5s;
+  }
+
+  .pricing-item:nth-child(2) {
+    animation-delay: 0.7s;
+  }
+
+  .pricing-item:nth-child(3) {
+    animation-delay: 0.9s;
+  }
+
+  .pricing-item:nth-child(4) {
+    animation-delay: 1.1s;
+  }
+
+  @keyframes pricing-item-appear {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-price {
+    animation: price-highlight 2s ease-in-out infinite;
+  }
+
+  @keyframes price-highlight {
+    0%, 100% {
+      color: #fb923c;
+      transform: scale(1);
+    }
+    50% {
+      color: #f97316;
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-special-price {
+    animation: special-price-glow 1.5s ease-in-out infinite;
+  }
+
+  @keyframes special-price-glow {
+    0%, 100% {
+      color: #4ade80;
+      text-shadow: 0 0 5px rgba(74, 222, 128, 0.3);
+      transform: scale(1);
+    }
+    50% {
+      color: #22c55e;
+      text-shadow: 0 0 15px rgba(74, 222, 128, 0.6);
+      transform: scale(1.1);
+    }
+  }
+
+  .animate-final-price {
+    animation: final-price-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes final-price-pulse {
+    0%, 100% {
+      color: #fb923c;
+      transform: scale(1);
+    }
+    50% {
+      color: #f97316;
+      transform: scale(1.08);
+    }
+  }
+
+  /* Staggered Animations */
+  .stagger-container .stagger-item {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .stagger-container .stagger-item.animate-in {
+    animation: stagger-in 0.8s ease forwards;
+  }
+
+  @keyframes stagger-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scroll-driven Animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+  }
+
+  .animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Parallax Effect */
+  .parallax-bg {
+    transform: translateZ(0);
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+  }
+
+  .parallax-image {
+    transform: scale(1.1);
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Enhanced Background Effects */
+  #hero-bg {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Improved Gradient Shift */
+  .animate-gradient-shift {
+    background: linear-gradient(45deg, #2563eb, #1e40af, #3b82f6, #2563eb);
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+    opacity: 0.8;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .floating-element {
+      animation-duration: 4s;
+    }
+    
+    .particles-container {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const delay = parseFloat(element.dataset.delay) || 0;
+        
+        setTimeout(() => {
+          element.classList.add('animate-in');
+        }, delay * 1000);
+        
+        observer.unobserve(element);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements with animate-on-scroll class
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Staggered animations for container items
+  const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const items = entry.target.querySelectorAll('.stagger-item');
+        items.forEach((item, index) => {
+          const delay = parseFloat(item.dataset.delay) || index * 0.1;
+          setTimeout(() => {
+            item.classList.add('animate-in');
+          }, delay * 1000);
+        });
+        staggerObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.stagger-container').forEach(el => {
+    staggerObserver.observe(el);
+  });
+
+  // Enhanced Parallax effect
+  function updateParallax() {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('.parallax-bg');
+    const parallaxImages = document.querySelectorAll('.parallax-image');
+    
+    parallaxElements.forEach(element => {
+      const speed = 0.3;
+      const yPos = -(scrolled * speed);
+      element.style.transform = `translateY(${yPos}px)`;
+    });
+
+    parallaxImages.forEach(image => {
+      const speed = 0.1;
+      const yPos = scrolled * speed;
+      const scale = 1.1 + (scrolled * 0.0001);
+      image.style.transform = `translateY(${yPos}px) scale(${Math.min(scale, 1.3)})`;
+    });
+  }
+
+  // Throttled scroll event for performance
+  let ticking = false;
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    requestTick();
+    ticking = false;
+  });
+
+  // Initialize animations on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Add initial delay to prevent flash
+    setTimeout(() => {
+      document.querySelector('.hero-section').classList.add('loaded');
+    }, 100);
+  });
+</script> 

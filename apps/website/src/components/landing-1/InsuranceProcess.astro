@@ -1,0 +1,66 @@
+---
+// Process section component
+const processSteps = [
+  { step: "۱", title: "اطلاعات خودرو", description: "مشخصات خودرو و راننده را وارد کنید", color: "from-blue-500 to-blue-600" },
+  { step: "۲", title: "انتخاب پوشش", description: "نوع پوشش و تخفیف‌های مناسب را انتخاب کنید", color: "from-green-500 to-green-600" },
+  { step: "۳", title: "پرداخت و دریافت", description: "پرداخت کنید و بیمه‌نامه را دریافت کنید", color: "from-orange-500 to-orange-600" }
+];
+---
+
+<section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 fade-in-on-scroll">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">فرآیند خرید در ۳ مرحله ساده</h2>
+      <p class="text-xl text-gray-600">تنها در عرض ۵ دقیقه بیمه خودرو خود را تهیه کنید</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {processSteps.map((process, index) => (
+        <div class="relative process-step" style={`animation-delay: ${index * 0.2}s`}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg text-center relative overflow-hidden group hover-lift">
+            <div class={`w-16 h-16 bg-gradient-to-r ${process.color} rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 animate-rotate-step`}>
+              {process.step}
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{process.title}</h3>
+            <p class="text-gray-600">{process.description}</p>
+            
+            {index < 2 && (
+              <div class="hidden md:block absolute top-1/2 -left-4 w-8 h-0.5 bg-gray-300 process-arrow"></div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes rotate-step {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes process-fade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-rotate-step {
+    animation: rotate-step 10s linear infinite;
+  }
+
+  .process-step {
+    opacity: 0;
+    animation: process-fade 0.6s ease-out forwards;
+  }
+
+  .process-arrow {
+    animation: process-fade 0.8s ease-out 0.5s forwards;
+    opacity: 0;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+</style> 

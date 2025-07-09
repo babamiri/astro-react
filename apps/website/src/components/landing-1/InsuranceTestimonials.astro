@@ -1,0 +1,113 @@
+---
+// Testimonials section component
+const testimonials = [
+  {
+    name: "محمد رضایی",
+    rating: 5,
+    text: "سریع‌ترین و بهترین خدمات بیمه که تا حالا تجربه کرده‌ام. پرداخت آسان و خسارت سریع!",
+    avatar: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1"
+  },
+  {
+    name: "فاطمه احمدی",
+    rating: 5,
+    text: "بیمه آتش‌سوزی رایگان و امکان پرداخت اقساطی عالی بود. خیلی راضی‌ام از انتخابم.",
+    avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1"
+  },
+  {
+    name: "علی حسینی",
+    rating: 5,
+    text: "ماشین حساب دقیق و قیمت‌های مناسب. تیم پشتیبانی هم فوق‌العاده حرفه‌ای هستند.",
+    avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1"
+  }
+];
+---
+
+<section class="py-20 bg-gray-50 fade-in-on-scroll">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">نظرات مشتریان</h2>
+      <p class="text-xl text-gray-600">تجربه هزاران مشتری راضی از خدمات ما</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div id="testimonial-container" class="bg-white rounded-2xl p-8 shadow-xl">
+        <div class="text-center">
+          <img id="testimonial-avatar" src={testimonials[0].avatar} alt={testimonials[0].name} class="w-20 h-20 rounded-full mx-auto mb-6 object-cover hover-scale" />
+          
+          <div class="flex justify-center text-yellow-400 mb-4">
+            {[...Array(5)].map((_, i) => (
+              <svg class="h-6 w-6 fill-current star-icon" style={`animation-delay: ${i * 0.1}s`}>
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+          
+          <p id="testimonial-text" class="text-xl text-gray-700 mb-6 leading-relaxed italic">
+            "{testimonials[0].text}"
+          </p>
+          
+          <div id="testimonial-name" class="text-lg font-semibold text-gray-900">
+            {testimonials[0].name}
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center mt-8 space-x-2 space-x-reverse">
+        {testimonials.map((_, index) => (
+          <button class={`w-3 h-3 rounded-full transition-colors testimonial-dot ${index === 0 ? 'bg-blue-600' : 'bg-gray-300'}`} data-index={index}></button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes star-fade {
+    from { opacity: 0; transform: rotate(-180deg); }
+    to { opacity: 1; transform: rotate(0deg); }
+  }
+
+  .star-icon {
+    opacity: 0;
+    animation: star-fade 0.5s ease-out forwards;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.1);
+  }
+
+  .testimonial-dot:hover {
+    transform: scale(1.2);
+  }
+</style>
+
+<script define:vars={{ testimonials }}>
+  let currentTestimonial = 0;
+  
+  function updateTestimonial(index) {
+    const testimonial = testimonials[index];
+    document.getElementById('testimonial-avatar').src = testimonial.avatar;
+    document.getElementById('testimonial-avatar').alt = testimonial.name;
+    document.getElementById('testimonial-text').textContent = `"${testimonial.text}"`;
+    document.getElementById('testimonial-name').textContent = testimonial.name;
+    
+    // Update dots
+    document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+      dot.classList.toggle('bg-blue-600', i === index);
+      dot.classList.toggle('bg-gray-300', i !== index);
+    });
+    
+    currentTestimonial = index;
+  }
+  
+  // Auto-rotate testimonials
+  setInterval(() => {
+    const nextIndex = (currentTestimonial + 1) % testimonials.length;
+    updateTestimonial(nextIndex);
+  }, 4000);
+  
+  // Manual control
+  document.querySelectorAll('.testimonial-dot').forEach((dot, index) => {
+    dot.addEventListener('click', () => updateTestimonial(index));
+  });
+</script> 

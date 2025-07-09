@@ -1,0 +1,939 @@
+---
+// Insurance calculator component
+---
+
+<section id="calculator" class="py-20 bg-white calculator-section">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 animate-on-scroll" data-delay="0">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-text-shimmer">
+        محاسبه‌گر بیمه خودرو
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        هزینه بیمه خودرو خود را به صورت دقیق محاسبه کنید
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-xl calculator-card animate-on-scroll" data-delay="0.2">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="space-y-6 inputs-container">
+            <div class="input-group animate-on-scroll" data-delay="0.3">
+              <label class="input-label">
+                <span class="label-text">ارزش خودرو (تومان)</span>
+                <span class="label-icon">🚗</span>
+              </label>
+              <div class="slider-container">
+                <input
+                  type="range"
+                  id="carValue"
+                  min="100000000"
+                  max="2000000000"
+                  step="50000000"
+                  value="500000000"
+                  class="custom-slider"
+                />
+                <div class="slider-track"></div>
+                <div class="slider-thumb"></div>
+                <div id="carValueDisplay" class="slider-value">
+                  ۵۰۰,۰۰۰,۰۰۰ تومان
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group animate-on-scroll" data-delay="0.4">
+              <label class="input-label">
+                <span class="label-text">سن خودرو</span>
+                <span class="label-icon">📅</span>
+              </label>
+              <div class="select-wrapper">
+                <select id="carAge" class="custom-select">
+                  <option value="0">صفر کیلومتر</option>
+                  <option value="1">۱ سال</option>
+                  <option value="2" selected>۲ سال</option>
+                  <option value="3">۳ سال</option>
+                  <option value="4">۴ سال</option>
+                  <option value="5">۵ سال</option>
+                  <option value="6">بیشتر از ۵ سال</option>
+                </select>
+                <div class="select-arrow">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group animate-on-scroll" data-delay="0.5">
+              <label class="input-label">
+                <span class="label-text">سن راننده</span>
+                <span class="label-icon">👤</span>
+              </label>
+              <div class="number-input-wrapper">
+                <input
+                  type="number"
+                  id="driverAge"
+                  min="18"
+                  max="80"
+                  value="30"
+                  class="custom-number-input"
+                />
+                <div class="input-controls">
+                  <button type="button" class="input-btn input-btn-up" onclick="adjustAge(1)">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                    </svg>
+                  </button>
+                  <button type="button" class="input-btn input-btn-down" onclick="adjustAge(-1)">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group animate-on-scroll" data-delay="0.6">
+              <label class="input-label">
+                <span class="label-text">نوع پوشش</span>
+                <span class="label-icon">🛡️</span>
+              </label>
+              <div class="radio-group">
+                <label class="radio-option" data-value="basic">
+                  <input type="radio" name="plan" value="basic" class="radio-input" />
+                  <div class="radio-card">
+                    <div class="radio-header">
+                      <div class="radio-title">پایه</div>
+                      <div class="radio-price">۰.۸×</div>
+                    </div>
+                    <div class="radio-description">شخص ثالث</div>
+                  </div>
+                </label>
+                <label class="radio-option" data-value="premium">
+                  <input type="radio" name="plan" value="premium" checked class="radio-input" />
+                  <div class="radio-card">
+                    <div class="radio-header">
+                      <div class="radio-title">استاندارد</div>
+                      <div class="radio-price">۱.۰×</div>
+                    </div>
+                    <div class="radio-description">شخص ثالث + بدنه</div>
+                  </div>
+                </label>
+                <label class="radio-option" data-value="complete">
+                  <input type="radio" name="plan" value="complete" class="radio-input" />
+                  <div class="radio-card">
+                    <div class="radio-header">
+                      <div class="radio-title">کامل</div>
+                      <div class="radio-price">۱.۲×</div>
+                    </div>
+                    <div class="radio-description">تمام پوشش‌ها</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="results-container animate-on-scroll" data-delay="0.7">
+            <div class="results-card">
+              <div class="results-header">
+                <h3 class="results-title">نتیجه محاسبه</h3>
+                <div class="results-icon">📊</div>
+              </div>
+              
+              <div class="results-body">
+                <div class="result-item" data-delay="0.1">
+                  <div class="result-label">حق بیمه سالانه</div>
+                  <div id="insurancePrice" class="result-value primary-value">
+                    ۱۵,۰۰۰,۰۰۰ تومان
+                  </div>
+                </div>
+                
+                <div class="result-item discount-item" data-delay="0.2">
+                  <div class="result-label">تخفیف ویژه</div>
+                  <div class="result-value discount-value">
+                    ۲۰٪ -
+                  </div>
+                </div>
+                
+                <div class="result-item gift-item" data-delay="0.3">
+                  <div class="result-label">بیمه آتش‌سوزی</div>
+                  <div class="result-value gift-value">
+                    رایگان!
+                  </div>
+                </div>
+                
+                <div class="result-item final-item" data-delay="0.4">
+                  <div class="final-price-container">
+                    <div class="final-price-label">قیمت نهایی</div>
+                    <div id="finalPrice" class="final-price-value">
+                      ۱۲,۰۰۰,۰۰۰ تومان
+                    </div>
+                  </div>
+                  <div class="installment-info">
+                    قابل پرداخت در ۶ قسط بدون کارمزد
+                  </div>
+                </div>
+                
+                <button class="purchase-btn">
+                  <span class="btn-text">خرید آنلاین</span>
+                  <span class="btn-icon">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                  </span>
+                  <div class="btn-shine"></div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .calculator-section {
+    position: relative;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  }
+
+  .animate-text-shimmer {
+    background: linear-gradient(45deg, #1f2937, #3b82f6, #1f2937);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .calculator-card {
+    position: relative;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .calculator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Input Groups */
+  .input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  .input-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: #374151;
+  }
+
+  .label-text {
+    font-size: 0.875rem;
+  }
+
+  .label-icon {
+    font-size: 1.25rem;
+    animation: icon-bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes icon-bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+
+  /* Custom Slider */
+  .slider-container {
+    position: relative;
+    padding: 1rem 0;
+  }
+
+  .custom-slider {
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(to right, #e5e7eb, #3b82f6);
+    border-radius: 4px;
+    outline: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .custom-slider:hover {
+    opacity: 1;
+  }
+
+  .custom-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .custom-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+  }
+
+  .custom-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .custom-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+  }
+
+  .slider-value {
+    text-align: center;
+    margin-top: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #3b82f6;
+    animation: value-pulse 0.3s ease;
+  }
+
+  @keyframes value-pulse {
+    0% {
+      transform: scale(1);
+      color: #f97316;
+    }
+    50% {
+      transform: scale(1.05);
+      color: #ea580c;
+    }
+    100% {
+      transform: scale(1);
+      color: #3b82f6;
+    }
+  }
+
+  /* Custom Select */
+  .select-wrapper {
+    position: relative;
+  }
+
+  .custom-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    padding-right: 2.5rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background: white;
+    font-size: 1rem;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+  }
+
+  .custom-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    transform: scale(1.02);
+  }
+
+  .select-arrow {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #6b7280;
+    transition: transform 0.3s ease;
+  }
+
+  .custom-select:focus + .select-arrow {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  /* Number Input */
+  .number-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .custom-number-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    padding-right: 3rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background: white;
+    font-size: 1rem;
+    color: #374151;
+    transition: all 0.3s ease;
+  }
+
+  .custom-number-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    transform: scale(1.02);
+  }
+
+  .input-controls {
+    position: absolute;
+    right: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .input-btn {
+    width: 1.5rem;
+    height: 1rem;
+    border: none;
+    background: #f3f4f6;
+    color: #6b7280;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .input-btn:hover {
+    background: #3b82f6;
+    color: white;
+    transform: scale(1.1);
+  }
+
+  /* Radio Group */
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .radio-option {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .radio-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .radio-card {
+    padding: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.75rem;
+    background: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .radio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(147, 51, 234, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .radio-option:hover .radio-card {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .radio-option:hover .radio-card::before {
+    opacity: 1;
+  }
+
+  .radio-input:checked + .radio-card {
+    border-color: #3b82f6;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    transform: scale(1.02);
+  }
+
+  .radio-input:checked + .radio-card::before {
+    opacity: 1;
+  }
+
+  .radio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .radio-title {
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  .radio-price {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #3b82f6;
+  }
+
+  .radio-description {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+
+  /* Results Card */
+  .results-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .results-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+    background-size: 200% 100%;
+    animation: gradient-flow 3s ease infinite;
+  }
+
+  @keyframes gradient-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .results-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+  }
+
+  .results-icon {
+    font-size: 1.5rem;
+    animation: icon-spin 3s ease-in-out infinite;
+  }
+
+  @keyframes icon-spin {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+  }
+
+  .results-body {
+    space-y: 1rem;
+  }
+
+  .result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    opacity: 0;
+    transform: translateX(20px);
+    animation: result-appear 0.6s ease forwards;
+  }
+
+  .result-item:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .result-item:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .result-item:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .result-item:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes result-appear {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .result-label {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+
+  .result-value {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .primary-value {
+    color: #3b82f6;
+    animation: value-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes value-glow {
+    from {
+      text-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+    }
+    to {
+      text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+    }
+  }
+
+  .discount-value {
+    color: #10b981;
+    animation: discount-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes discount-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  .gift-value {
+    color: #f59e0b;
+    animation: gift-sparkle 1.5s ease-in-out infinite;
+  }
+
+  @keyframes gift-sparkle {
+    0%, 100% {
+      transform: scale(1);
+      text-shadow: 0 0 5px rgba(245, 158, 11, 0.3);
+    }
+    50% {
+      transform: scale(1.1);
+      text-shadow: 0 0 15px rgba(245, 158, 11, 0.6);
+    }
+  }
+
+  .final-item {
+    border: none;
+    padding: 1rem;
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    border-radius: 0.75rem;
+    color: white;
+    margin-top: 1rem;
+  }
+
+  .final-price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .final-price-label {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  .final-price-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    animation: final-price-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes final-price-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  .installment-info {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    text-align: center;
+  }
+
+  /* Purchase Button */
+  .purchase-btn {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .purchase-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.4);
+  }
+
+  .purchase-btn:hover .btn-icon {
+    animation: arrow-move 0.6s ease;
+  }
+
+  @keyframes arrow-move {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+  }
+
+  .btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .purchase-btn:hover .btn-shine {
+    left: 100%;
+  }
+
+  /* Scroll Animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+
+  .animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .calculator-card {
+      padding: 1.5rem;
+    }
+    
+    .radio-group {
+      gap: 0.5rem;
+    }
+    
+    .radio-card {
+      padding: 0.75rem;
+    }
+    
+    .results-card {
+      padding: 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Global variables
+  let carValue = 500000000;
+  let carAge = 2;
+  let driverAge = 30;
+  let selectedPlan = 'premium';
+
+  // Format price function
+  function formatPrice(price) {
+    return new Intl.NumberFormat('fa-IR').format(price);
+  }
+
+  // Calculate insurance function
+  function calculateInsurance() {
+    const basePrice = carValue * 0.03;
+    const ageMultiplier = carAge <= 1 ? 1.2 : carAge <= 3 ? 1.0 : 0.8;
+    const driverMultiplier = driverAge < 25 ? 1.3 : driverAge < 35 ? 1.0 : 0.9;
+    const planMultiplier = selectedPlan === 'basic' ? 0.8 : selectedPlan === 'premium' ? 1.0 : 1.2;
+    
+    const totalPrice = Math.round(basePrice * ageMultiplier * driverMultiplier * planMultiplier);
+    const finalPrice = Math.round(totalPrice * 0.8); // 20% discount
+    
+    return { totalPrice, finalPrice };
+  }
+
+  // Update display function
+  function updateDisplay() {
+    const { totalPrice, finalPrice } = calculateInsurance();
+    
+    const insurancePriceEl = document.getElementById('insurancePrice');
+    const finalPriceEl = document.getElementById('finalPrice');
+    
+    if (insurancePriceEl && finalPriceEl) {
+      // Animate value changes
+      insurancePriceEl.style.animation = 'value-pulse 0.3s ease';
+      finalPriceEl.style.animation = 'final-price-pulse 0.3s ease';
+      
+      insurancePriceEl.textContent = formatPrice(totalPrice) + ' تومان';
+      finalPriceEl.textContent = formatPrice(finalPrice) + ' تومان';
+      
+      // Reset animation
+      setTimeout(() => {
+        insurancePriceEl.style.animation = 'value-glow 2s ease-in-out infinite alternate';
+        finalPriceEl.style.animation = 'final-price-pulse 2s ease-in-out infinite';
+      }, 300);
+    }
+  }
+
+  // Adjust age function
+  function adjustAge(delta) {
+    const input = document.getElementById('driverAge');
+    const newValue = Math.max(18, Math.min(80, parseInt(input.value) + delta));
+    input.value = newValue;
+    driverAge = newValue;
+    updateDisplay();
+  }
+
+  // Event listeners
+  document.addEventListener('DOMContentLoaded', () => {
+    // Car value slider
+    const carValueSlider = document.getElementById('carValue');
+    const carValueDisplay = document.getElementById('carValueDisplay');
+    
+    if (carValueSlider && carValueDisplay) {
+      carValueSlider.addEventListener('input', function() {
+        carValue = parseInt(this.value);
+        carValueDisplay.textContent = formatPrice(carValue) + ' تومان';
+        carValueDisplay.style.animation = 'value-pulse 0.3s ease';
+        updateDisplay();
+      });
+    }
+
+    // Car age select
+    const carAgeSelect = document.getElementById('carAge');
+    if (carAgeSelect) {
+      carAgeSelect.addEventListener('change', function() {
+        carAge = parseInt(this.value);
+        updateDisplay();
+      });
+    }
+
+    // Driver age input
+    const driverAgeInput = document.getElementById('driverAge');
+    if (driverAgeInput) {
+      driverAgeInput.addEventListener('input', function() {
+        driverAge = parseInt(this.value);
+        updateDisplay();
+      });
+    }
+
+    // Plan radio buttons
+    const planRadios = document.querySelectorAll('input[name="plan"]');
+    planRadios.forEach(radio => {
+      radio.addEventListener('change', function() {
+        if (this.checked) {
+          selectedPlan = this.value;
+          
+          // Add visual feedback
+          const radioCard = this.nextElementSibling;
+          radioCard.style.animation = 'result-appear 0.3s ease';
+          
+          updateDisplay();
+        }
+      });
+    });
+
+    // Initialize display
+    updateDisplay();
+  });
+
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const delay = parseFloat(element.dataset.delay) || 0;
+        
+        setTimeout(() => {
+          element.classList.add('animate-in');
+        }, delay * 1000);
+        
+        observer.unobserve(element);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements with animate-on-scroll class
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Make adjustAge function globally available
+  window.adjustAge = adjustAge;
+</script> 
