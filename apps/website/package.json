@@ -8,9 +8,7 @@
     "preview": "astro preview",
     "clean": "rimraf dist .astro",
     "lint": "eslint src --ext .ts,.tsx,.astro",
-    "typecheck": "astro check && tsc --noEmit",
-    "test": "vitest",
-    "test:e2e": "playwright test"
+    "typecheck": "astro check && tsc --noEmit"
   },
   "dependencies": {
     "@astro-react/ui-button": "workspace:*",
@@ -28,13 +26,11 @@
     "vazirmatn": "^33.0.3"
   },
   "devDependencies": {
-    "@playwright/test": "^1.41.0",
     "@types/node": "^24.0.11",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
-    "rimraf": "^5.0.5",
-    "vitest": "^1.2.0"
+    "rimraf": "^5.0.5"
   }
 }

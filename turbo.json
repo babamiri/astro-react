@@ -13,10 +13,6 @@
     "lint": {
       "outputs": []
     },
-    "test": {
-      "outputs": ["coverage/**"],
-      "dependsOn": ["build"]
-    },
     "clean": {
       "cache": false
     },

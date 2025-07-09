@@ -10,8 +10,6 @@
     "clean": "rimraf dist",
     "lint": "eslint src --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
-    "test": "vitest",
-    "test:ui": "vitest --ui",
     "preview": "vite"
   },
   "peerDependencies": {
@@ -30,7 +28,6 @@
     "tsup": "^8.0.0",
     "typescript": "^5.0.0",
     "vite": "^5.0.0",
-    "vitest": "^1.2.0",
     "rimraf": "^5.0.5"
   }
 }

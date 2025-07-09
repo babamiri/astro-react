@@ -194,9 +194,10 @@ const SaaSSignup: React.FC<SaaSSignupProps> = ({ onSuccess, onError }) => {
     <div style={containerStyle}>
       <form onSubmit={handleSubmit} style={formStyle}>
         <div>
-          <label style={labelStyle}>نام دامنه دلخواه</label>
+          <label htmlFor="domain-input" style={labelStyle}>نام دامنه دلخواه</label>
           <div style={inputContainerStyle}>
             <input
+              id="domain-input"
               type="text"
               style={inputStyle}
               placeholder="mycoolstartup"
@@ -213,65 +214,67 @@ const SaaSSignup: React.FC<SaaSSignupProps> = ({ onSuccess, onError }) => {
         </div>
 
         <div>
-          <label style={labelStyle}>پلن موردنظر</label>
-          <div style={plansGridStyle}>
-            {plans.map((plan) => (
-              <label
-                key={plan.id}
-                style={planCardStyle(planId === plan.id)}
-                onClick={() => setPlanId(plan.id)}
-              >
-                <input
-                  type="radio"
-                  style={{ display: 'none' }}
-                  name="plan"
-                  value={plan.id}
-                  checked={planId === plan.id}
-                  onChange={() => setPlanId(plan.id)}
-                />
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ 
-                    fontWeight: typography.fontWeight.bold,
-                    fontSize: typography.fontSize.lg,
-                    marginBottom: spacing.sm,
-                    color: colors.gray[800]
-                  }}>
-                    {plan.name}
+          <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
+            <legend style={labelStyle}>پلن موردنظر</legend>
+            <div style={plansGridStyle}>
+              {plans.map((plan) => (
+                <label
+                  key={plan.id}
+                  style={planCardStyle(planId === plan.id)}
+                  onClick={() => setPlanId(plan.id)}
+                >
+                  <input
+                    type="radio"
+                    style={{ display: 'none' }}
+                    name="plan"
+                    value={plan.id}
+                    checked={planId === plan.id}
+                    onChange={() => setPlanId(plan.id)}
+                  />
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ 
+                      fontWeight: typography.fontWeight.bold,
+                      fontSize: typography.fontSize.lg,
+                      marginBottom: spacing.sm,
+                      color: colors.gray[800]
+                    }}>
+                      {plan.name}
+                    </div>
+                    <div style={{ 
+                      fontSize: typography.fontSize['2xl'],
+                      color: colors.orange[600],
+                      fontWeight: typography.fontWeight.extrabold,
+                      marginBottom: spacing.sm
+                    }}>
+                      ${plan.price}
+                    </div>
+                    <div style={{ 
+                      fontSize: typography.fontSize.sm,
+                      color: colors.gray[600],
+                      marginBottom: spacing.md
+                    }}>
+                      هر ماه
+                    </div>
+                    <div style={{ textAlign: 'right' }}>
+                      {plan.features.map((feature, index) => (
+                        <div key={index} style={{ 
+                          fontSize: typography.fontSize.sm,
+                          color: colors.gray[600],
+                          marginBottom: spacing.xs,
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: spacing.sm
+                        }}>
+                          <span style={{ color: colors.orange[500] }}>✓</span>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <div style={{ 
-                    fontSize: typography.fontSize['2xl'],
-                    color: colors.orange[600],
-                    fontWeight: typography.fontWeight.extrabold,
-                    marginBottom: spacing.sm
-                  }}>
-                    ${plan.price}
-                  </div>
-                  <div style={{ 
-                    fontSize: typography.fontSize.sm,
-                    color: colors.gray[600],
-                    marginBottom: spacing.md
-                  }}>
-                    هر ماه
-                  </div>
-                  <div style={{ textAlign: 'right' }}>
-                    {plan.features.map((feature, index) => (
-                      <div key={index} style={{ 
-                        fontSize: typography.fontSize.sm,
-                        color: colors.gray[600],
-                        marginBottom: spacing.xs,
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: spacing.sm
-                      }}>
-                        <span style={{ color: colors.orange[500] }}>✓</span>
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </label>
-            ))}
-          </div>
+                </label>
+              ))}
+            </div>
+          </fieldset>
         </div>
 
         <Button 
