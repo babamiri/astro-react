@@ -31,8 +31,8 @@ const plans: Plan[] = [
 ];
 
 interface SaaSSignupProps {
-  onSuccess?: (data: { domain: string; planId: string }) => void;
-  onError?: (error: string) => void;
+  onSuccess?: (_data: { domain: string; planId: string }) => void;
+  onError?: (_error: string) => void;
 }
 
 const SaaSSignup: React.FC<SaaSSignupProps> = ({ onSuccess, onError }) => {
@@ -73,7 +73,7 @@ const SaaSSignup: React.FC<SaaSSignupProps> = ({ onSuccess, onError }) => {
       
       setSubmitted(true);
       onSuccess?.({ domain, planId });
-    } catch (err) {
+    } catch {
       const errorMsg = 'خطا در ثبت‌نام. لطفاً دوباره تلاش کنید.';
       setError(errorMsg);
       onError?.(errorMsg);

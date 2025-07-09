@@ -1,0 +1,137 @@
+طراحی یک لندینگ پیج بسیار حرفه‌ای، جذاب و مدرن برای معرفی و فروش آنلاین بیمه خودرو (بیمه شخص ثالث و بیمه بدنه).
+
+🛠️ **استک تکنولوژی:**
+- **Astro** - Static Site Generator (بهینه‌سازی SEO و سرعت)
+- **React 19** - کامپوننت‌های تعاملی
+- **TypeScript** - Type Safety
+- **Tailwind CSS** + **Design Tokens** - سیستم طراحی یکپارچه
+- **Jotai** - State Management برای فرم‌ها و داده‌ها
+- **Vazirmatn** - فونت فارسی
+
+🎨 **ساختار کلی صفحه:**
+- **Mobile-First Design** (80% کاربران موبایل)
+- طراحی کاملاً واکنش‌گرا (Responsive) برای دسکتاپ، تبلت و موبایل
+- استفاده از Design Tokens موجود (رنگ‌های orange، brown، gray)
+- بهینه‌سازی برای تبلیغات پیامکی (سرعت لود بالا)
+- از تصاویر بهینه‌شده WebP/AVIF برای خودروهای ایرانی استفاده شود
+
+📌 **کامپوننت‌های React مورد نیاز:**
+
+1. **Header Component**
+   - Navigation responsive با hamburger menu
+   - Logo placeholder (جایگزین بعدی)
+   - CTA Button با Design Tokens
+
+2. **Hero Section Component**
+   - Image optimization با Astro
+   - دو CTA Button (شخص ثالث / بدنه)
+   - تایپوگرافی با Vazirmatn
+
+3. **Insurance Benefits Component**
+   - Grid layout responsive
+   - Icon + Text cards
+   - Animation با CSS/Tailwind
+
+4. **Gift Section Component**
+   - بیمه آتش‌سوزی منزل هدیه
+   - Visual representation
+
+5. **Calculator Component** (پیچیده‌ترین)
+   - **Jotai Atoms** برای مدیریت state
+   - Tab switching (شخص ثالث / بدنه)
+   - Form validation
+   - Real-time price calculation
+   - Mobile-optimized inputs
+
+6. **Testimonials Component**
+   - Carousel/Slider
+   - Star ratings
+   - Customer avatars
+
+7. **About Section Component**
+   - Company info
+   - Trust indicators
+
+8. **Contact Form Component**
+   - **Jotai** برای form state
+   - Validation
+   - WhatsApp integration
+
+9. **Footer Component**
+   - Links و social media
+   - Company info
+
+📱 **Mobile-First Requirements:**
+- Touch-friendly buttons (min 44px)
+- Swipe gestures برای carousel
+- فرم‌های بهینه‌شده موبایل
+- Loading states برای اتصال کند
+
+🎯 **State Management با Jotai:**
+```typescript
+// Insurance Calculator Atoms
+export const carTypeAtom = atom<string>('')
+export const carYearAtom = atom<number>(new Date().getFullYear())
+export const discountPercentAtom = atom<number>(0)
+export const plateNumberAtom = atom<string>('')
+export const phoneNumberAtom = atom<string>('')
+
+// UI State Atoms
+export const activeTabAtom = atom<'third-party' | 'comprehensive'>('third-party')
+export const isCalculatingAtom = atom<boolean>(false)
+
+// Contact Form Atoms
+export const contactFormAtom = atom({
+  name: '',
+  phone: '',
+  message: ''
+})
+
+// Derived Atoms
+export const calculationResultsAtom = atom(
+  (get) => {
+    const carType = get(carTypeAtom)
+    const carYear = get(carYearAtom)
+    const discount = get(discountPercentAtom)
+    // محاسبه قیمت بر اساس داده‌ها
+    return calculateInsurancePrice(carType, carYear, discount)
+  }
+)
+```
+
+🖼️ **تصاویر و Assets:**
+- **Hero Image**: خودروی مدرن ایرانی (پژو 2008، دنا+، تارا)
+- **Car Icons**: SVG icons برای انواع خودرو
+- **Insurance Icons**: محافظت، سپر، چتر
+- **Gift Graphics**: خانه + آتش + بیمه
+- **Customer Avatars**: تصاویر placeholder
+- **Company Logo**: Placeholder (جایگزین بعدی)
+
+📊 **Performance Requirements:**
+- Core Web Vitals بهینه
+- Lazy loading برای تصاویر
+- Code splitting برای کامپوننت‌ها
+- Preload critical resources
+
+🎁 **ویژگی‌های خاص:**
+- تایمر شمارش معکوس (Jotai state)
+- Progressive Web App features
+- WhatsApp direct link
+- SMS/Call integration
+- Form persistence (localStorage با Jotai utils)
+
+📌 **مراحل پیاده‌سازی:**
+1. ایجاد Design Tokens اضافی برای بیمه
+2. ساخت Jotai atoms و stores
+3. پیاده‌سازی کامپوننت‌های React
+4. Integration با Astro pages
+5. Mobile optimization
+6. Performance tuning
+7. تست روی دستگاه‌های مختلف
+
+🎯 **هدف نهایی:** 
+افزایش نرخ تبدیل (conversion) از بازدیدکننده به خریدار بیمه با:
+- تجربه کاربری فوق‌العاده روی موبایل
+- سرعت لود بالا برای ترافیک پیامکی
+- فرم‌های هوشمند و user-friendly
+- اعتماد‌سازی از طریق طراحی حرفه‌ای

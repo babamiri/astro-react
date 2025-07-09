@@ -1,64 +1,743 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Button } from '@astro-react/ui-button';
-import { SaaSSignup } from '@astro-react/ui-saas-signup';
-
-const features = [
-  {
-    title: 'ویژگی اول',
-    description: 'توضیحات کوتاه درباره اولین ویژگی محصول',
-    icon: '🌟'
-  },
-  {
-    title: 'ویژگی دوم', 
-    description: 'توضیحات کوتاه درباره دومین ویژگی محصول',
-    icon: '⚡'
-  },
-  {
-    title: 'ویژگی سوم',
-    description: 'توضیحات کوتاه درباره سومین ویژگی محصول',
-    icon: '🔒'
-  }
-];
 ---
 
-<Layout title="صفحه اصلی" description="صفحه اصلی محصول فوق العاده ما - راه حلی نوآورانه برای نیازهای شما">
-  <!-- Hero Section -->
-  <section class="bg-brown-100 py-20">
-    <div class="container mx-auto px-4 flex flex-col items-center text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-orange-800 mb-6">
-        محصول فوق العاده ما
-      </h1>
-        <p class="text-xl text-brown-600 mb-8 max-w-2xl">
-        راه حل نوآورانه ما برای مشکل
-      </p>
-      <Button client:load text="همین حالا شروع کنید" />
-    </div>
-  </section>
+<Layout title="بیمه خودرو حرفه‌ای - آرامش خاطر شما">
+	<main class="min-h-screen bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+		<!-- Navigation -->
+		<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200/20 transition-all duration-300">
+			<div class="container mx-auto px-6 py-4">
+				<div class="flex items-center justify-between">
+					<div class="flex items-center space-x-8">
+						<div class="text-2xl font-bold text-gray-900 animate-fade-in">
+							بیمه‌کار
+						</div>
+						<div class="hidden md:flex space-x-6">
+							<a href="#services" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">خدمات</a>
+							<a href="#about" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">درباره ما</a>
+							<a href="#calculator" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">محاسبه قیمت</a>
+							<a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">تماس</a>
+						</div>
+					</div>
+					<button class="cta-button bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-all">
+						مشاوره رایگان
+					</button>
+				</div>
+			</div>
+		</nav>
 
-  <!-- Features Section -->
-  <section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">ویژگی‌های ما</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {features.map((feature) => (
-          <div class="bg-brown-50 p-6 rounded-lg shadow-sm border border-brown-200">
-            <div class="text-4xl mb-4 text-orange-600">{feature.icon}</div>
-            <h3 class="text-xl font-bold text-orange-700 mb-2">{feature.title}</h3>
-            <p class="text-brown-600">{feature.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+		<!-- Hero Section with Video Background -->
+		<section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+			<!-- Background Video -->
+			<div class="absolute inset-0 z-0">
+				<video 
+					autoplay 
+					muted 
+					loop 
+					playsinline 
+					class="w-full h-full object-cover opacity-30"
+				>
+					<source src="/t8JWL4KkHYc4RWQsKkimaCZsU.mp4" type="video/mp4">
+				</video>
+				<div class="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/50"></div>
+			</div>
 
-  <!-- SaaS Signup Section -->
-  <section class="py-20 bg-brown-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-orange-800 mb-12">همین حالا سرویس SaaS خود را راه‌اندازی کنید</h2>
-      <div class="max-w-3xl mx-auto">
-        <SaaSSignup client:load />
-      </div>
-    </div>
-  </section>
-</Layout> 
+			<!-- Floating Elements -->
+			<div class="floating-elements absolute inset-0 overflow-hidden pointer-events-none">
+				<div class="floating-icon car absolute top-20 left-10 text-white/20 text-6xl">🚗</div>
+				<div class="floating-icon shield absolute top-40 right-20 text-white/20 text-4xl">🛡️</div>
+				<div class="floating-icon money absolute bottom-32 left-1/4 text-white/20 text-5xl">💰</div>
+				<div class="floating-icon lightning absolute bottom-20 right-1/3 text-white/20 text-3xl">⚡</div>
+			</div>
+
+			<!-- Hero Content -->
+			<div class="hero-content relative z-10 text-center max-w-4xl mx-auto px-6">
+				<div class="mb-8">
+					<h1 class="typewriter text-5xl md:text-7xl font-bold text-white mb-6">
+						<span class="typewriter-text"></span>
+						<span class="cursor">|</span>
+					</h1>
+					<p class="fade-in-up text-xl md:text-2xl text-white/90 leading-relaxed max-w-2xl mx-auto">
+						با بهترین پوشش‌های بیمه‌ای و خدمات 24 ساعته، آرامش خاطر شما را تضمین می‌کنیم
+					</p>
+				</div>
+
+				<div class="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-up">
+					<button class="btn-primary group bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg">
+						<span class="flex items-center">
+							محاسبه قیمت آنلاین
+							<svg class="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+							</svg>
+						</span>
+					</button>
+					<button class="btn-secondary group border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all">
+						<span class="flex items-center">
+							مشاوره تلفنی
+							<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+							</svg>
+						</span>
+					</button>
+				</div>
+
+				<!-- Scroll Indicator -->
+				<div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2">
+					<div class="animate-bounce text-white/70">
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Benefits Section -->
+		<section id="services" class="benefits-section py-20 bg-gradient-to-b from-white to-gray-50">
+			<div class="container mx-auto px-6">
+				<div class="section-header text-center mb-16">
+					<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 fade-in-up">
+						چرا بیمه ما را انتخاب کنید؟
+					</h2>
+					<p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in-up">
+						با سال‌ها تجربه در صنعت بیمه، خدماتی ارائه می‌دهیم که نیازهای شما را به بهترین شکل پاسخ می‌دهد
+					</p>
+				</div>
+
+				<div class="benefits-grid grid md:grid-cols-3 gap-8 mb-16">
+					<div class="benefit-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
+						<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+							<img src="/57jBMCzuxydlDJ8i7sPfpZohxw.webp" alt="تخفیف ویژه" class="w-8 h-8 object-cover rounded-lg">
+						</div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-4">تخفیف‌های ویژه</h3>
+						<p class="text-gray-600 leading-relaxed">
+							تا 30% تخفیف برای رانندگان با سابقه عالی و خودروهای مجهز به سیستم‌های ایمنی
+						</p>
+					</div>
+
+					<div class="benefit-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
+						<div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+							<img src="/LlhAiwVD9ykEBfTJ0N0hx9Yo8z0.webp" alt="پرداخت اقساطی" class="w-8 h-8 object-cover rounded-lg">
+						</div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-4">پرداخت اقساطی</h3>
+						<p class="text-gray-600 leading-relaxed">
+							امکان پرداخت حق بیمه در 12 قسط بدون کارمزد اضافی با شرایط آسان
+						</p>
+					</div>
+
+					<div class="benefit-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
+						<div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+							<img src="/JduM9fRpNUHaqQvE18OTW4O2auk.webp" alt="پرداخت آنلاین" class="w-8 h-8 object-cover rounded-lg">
+						</div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-4">پرداخت آنلاین</h3>
+						<p class="text-gray-600 leading-relaxed">
+							پرداخت سریع و امن با تمامی کارت‌های بانکی و کیف پول‌های دیجیتال
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Gift Section -->
+		<section class="gift-section py-20 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
+			<div class="absolute inset-0 opacity-10">
+				<img src="/FXtNxj4he7EaRQl84ZwLArMS2U_004.avif" alt="Background" class="w-full h-full object-cover">
+			</div>
+			
+			<div class="container mx-auto px-6 relative z-10">
+				<div class="gift-content text-center text-white">
+					<h2 class="text-4xl md:text-5xl font-bold mb-6 scale-in">
+						🎁 هدیه ویژه برای شما
+					</h2>
+					<p class="text-xl mb-8 opacity-90 fade-in-up">
+						بیمه آتش‌سوزی منزل رایگان با خرید بیمه خودرو
+					</p>
+					<div class="gift-box bg-white/20 backdrop-blur-lg rounded-2xl p-8 max-w-2xl mx-auto">
+						<div class="flex items-center justify-center mb-6">
+							<img src="/3uX7oFErOW64AIHiIPZE3TiidY.webp" alt="خانواده خوشحال" class="w-32 h-32 object-cover rounded-full border-4 border-white/30">
+						</div>
+						<h3 class="text-2xl font-bold mb-4">محافظت کامل برای خانواده شما</h3>
+						<p class="text-lg opacity-90 mb-6">
+							با خرید بیمه خودرو، بیمه آتش‌سوزی منزل به ارزش 2 میلیارد ریال کاملاً رایگان دریافت کنید
+						</p>
+						<button class="btn-gift bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
+							همین حالا شروع کنید
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Gallery Section -->
+		<section class="gallery-section py-20 bg-gray-50">
+			<div class="container mx-auto px-6">
+				<div class="section-header text-center mb-16">
+					<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 fade-in-up">
+						گالری تصاویر
+					</h2>
+					<p class="text-xl text-gray-600 fade-in-up">
+						نگاهی به خدمات و امکانات ما
+					</p>
+				</div>
+
+				<div class="gallery-grid grid grid-cols-2 md:grid-cols-4 gap-4">
+					<div class="gallery-item group relative overflow-hidden rounded-xl">
+						<img src="/3uX7oFErOW64AIHiIPZE3TiidY.webp" alt="خدمات مشاوره" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+							<div class="absolute bottom-4 left-4 text-white">
+								<h4 class="font-semibold">مشاوره تخصصی</h4>
+							</div>
+						</div>
+					</div>
+
+					<div class="gallery-item group relative overflow-hidden rounded-xl">
+						<img src="/57jBMCzuxydlDJ8i7sPfpZohxw.webp" alt="پارکینگ امن" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+							<div class="absolute bottom-4 left-4 text-white">
+								<h4 class="font-semibold">پارکینگ امن</h4>
+							</div>
+						</div>
+					</div>
+
+					<div class="gallery-item group relative overflow-hidden rounded-xl">
+						<img src="/LlhAiwVD9ykEBfTJ0N0hx9Yo8z0.webp" alt="تیم حرفه‌ای" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+							<div class="absolute bottom-4 left-4 text-white">
+								<h4 class="font-semibold">تیم حرفه‌ای</h4>
+							</div>
+						</div>
+					</div>
+
+					<div class="gallery-item group relative overflow-hidden rounded-xl">
+						<img src="/JduM9fRpNUHaqQvE18OTW4O2auk.webp" alt="دفتر مدرن" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+							<div class="absolute bottom-4 left-4 text-white">
+								<h4 class="font-semibold">دفتر مدرن</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Calculator Section -->
+		<section id="calculator" class="calculator-section py-20 bg-white">
+			<div class="container mx-auto px-6">
+				<div class="section-header text-center mb-16">
+					<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 fade-in-up">
+						محاسبه قیمت بیمه
+					</h2>
+					<p class="text-xl text-gray-600 fade-in-up">
+						قیمت بیمه خودرو خود را در کمتر از 2 دقیقه محاسبه کنید
+					</p>
+				</div>
+
+				<div class="calculator-form max-w-4xl mx-auto">
+					<div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 shadow-xl">
+						<div class="grid md:grid-cols-2 gap-8">
+							<div class="space-y-6">
+								<div class="form-group">
+									<label class="block text-sm font-semibold text-gray-700 mb-2">نوع خودرو</label>
+									<select class="form-select w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+										<option>انتخاب کنید</option>
+										<option>سواری</option>
+										<option>وانت</option>
+										<option>موتورسیکلت</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="block text-sm font-semibold text-gray-700 mb-2">مدل خودرو</label>
+									<select class="form-select w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+										<option>انتخاب کنید</option>
+										<option>پراید</option>
+										<option>پژو</option>
+										<option>سمند</option>
+										<option>دنا</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="block text-sm font-semibold text-gray-700 mb-2">سال ساخت</label>
+									<select class="form-select w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+										<option>انتخاب کنید</option>
+										<option>1403</option>
+										<option>1402</option>
+										<option>1401</option>
+										<option>1400</option>
+									</select>
+								</div>
+							</div>
+							<div class="space-y-6">
+								<div class="form-group">
+									<label class="block text-sm font-semibold text-gray-700 mb-2">نوع بیمه</label>
+									<div class="grid grid-cols-2 gap-4">
+										<label class="radio-option flex items-center p-4 border border-gray-300 rounded-xl cursor-pointer hover:bg-blue-50 transition-all">
+											<input type="radio" name="insurance-type" class="text-blue-600">
+											<span class="mr-3">شخص ثالث</span>
+										</label>
+										<label class="radio-option flex items-center p-4 border border-gray-300 rounded-xl cursor-pointer hover:bg-blue-50 transition-all">
+											<input type="radio" name="insurance-type" class="text-blue-600">
+											<span class="mr-3">بدنه</span>
+										</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="block text-sm font-semibold text-gray-700 mb-2">تخفیف عدم خسارت</label>
+									<select class="form-select w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+										<option>انتخاب کنید</option>
+										<option>بدون تخفیف</option>
+										<option>10 درصد</option>
+										<option>20 درصد</option>
+										<option>30 درصد</option>
+									</select>
+								</div>
+								<button class="calculate-btn w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg">
+									محاسبه قیمت
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- About Section with Statistics -->
+		<section id="about" class="about-section py-20 bg-gradient-to-b from-white to-gray-50">
+			<div class="container mx-auto px-6">
+				<div class="grid lg:grid-cols-2 gap-16 items-center">
+					<div class="about-content">
+						<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 fade-in-left">
+							درباره بیمه‌کار
+						</h2>
+						<p class="text-lg text-gray-600 leading-relaxed mb-8 fade-in-left">
+							با بیش از 10 سال تجربه در صنعت بیمه، ما متعهد به ارائه بهترین خدمات بیمه‌ای با قیمت‌های رقابتی و پوشش‌های جامع هستیم. تیم متخصص ما همواره آماده خدمت‌رسانی به شما عزیزان است.
+						</p>
+						<div class="stats-grid grid grid-cols-3 gap-6">
+							<div class="stat-item text-center">
+								<div class="counter text-3xl font-bold text-blue-600" data-target="100000">0</div>
+								<p class="text-sm text-gray-600 mt-2">مشتری راضی</p>
+							</div>
+							<div class="stat-item text-center">
+								<div class="counter text-3xl font-bold text-green-600" data-target="10" data-suffix="+">0</div>
+								<p class="text-sm text-gray-600 mt-2">سال تجربه</p>
+							</div>
+							<div class="stat-item text-center">
+								<div class="counter text-3xl font-bold text-purple-600" data-target="24" data-suffix="/7">0</div>
+								<p class="text-sm text-gray-600 mt-2">پشتیبانی</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="about-image fade-in-right">
+						<div class="relative">
+							<img src="/H2ndP9syuDrGgUeXf415UvTQBE_004.avif" alt="تیم حرفه‌ای بیمه‌کار" class="w-full rounded-2xl shadow-2xl">
+							<div class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent rounded-2xl"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="contact-section py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+			<div class="container mx-auto px-6">
+				<div class="section-header text-center text-white mb-16">
+					<h2 class="text-4xl md:text-5xl font-bold mb-6 fade-in-up">
+						تماس با ما
+					</h2>
+					<p class="text-xl opacity-90 fade-in-up">
+						کارشناسان ما آماده پاسخگویی به سوالات شما هستند
+					</p>
+				</div>
+
+				<div class="contact-content grid lg:grid-cols-2 gap-12">
+					<div class="contact-form bg-white/10 backdrop-blur-lg rounded-2xl p-8 fade-in-left">
+						<h3 class="text-2xl font-bold text-white mb-6">فرم تماس سریع</h3>
+						<form class="space-y-6">
+							<div>
+								<input type="text" placeholder="نام و نام خانوادگی" class="w-full p-4 rounded-xl border-0 bg-white/20 placeholder-white/70 text-white focus:ring-2 focus:ring-white/50">
+							</div>
+							<div>
+								<input type="tel" placeholder="شماره تلفن" class="w-full p-4 rounded-xl border-0 bg-white/20 placeholder-white/70 text-white focus:ring-2 focus:ring-white/50">
+							</div>
+							<div>
+								<textarea placeholder="پیام شما" rows="4" class="w-full p-4 rounded-xl border-0 bg-white/20 placeholder-white/70 text-white focus:ring-2 focus:ring-white/50"></textarea>
+							</div>
+							<button type="submit" class="w-full bg-white text-blue-600 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
+								ارسال پیام
+							</button>
+						</form>
+					</div>
+
+					<div class="contact-info space-y-8 fade-in-right">
+						<div class="contact-item bg-white/10 backdrop-blur-lg rounded-2xl p-6">
+							<div class="flex items-center text-white">
+								<div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center ml-4">
+									<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-semibold">تلفن تماس</h4>
+									<p class="opacity-90">021-88776655</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="contact-item bg-white/10 backdrop-blur-lg rounded-2xl p-6">
+							<div class="flex items-center text-white">
+								<div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center ml-4">
+									<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-semibold">ایمیل</h4>
+									<p class="opacity-90">info@bimekar.com</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="contact-item bg-white/10 backdrop-blur-lg rounded-2xl p-6">
+							<div class="flex items-center text-white">
+								<div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center ml-4">
+									<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-semibold">آدرس</h4>
+									<p class="opacity-90">تهران، میدان ولیعصر، ساختمان بیمه‌کار</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	/* Global Styles */
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	/* Animations */
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes fadeInLeft {
+		from {
+			opacity: 0;
+			transform: translateX(-30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	@keyframes fadeInRight {
+		from {
+			opacity: 0;
+			transform: translateX(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	@keyframes scaleIn {
+		from {
+			opacity: 0;
+			transform: scale(0.9);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	@keyframes float {
+		0%, 100% { transform: translateY(0px); }
+		50% { transform: translateY(-20px); }
+	}
+
+	@keyframes bounce-slow {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-10px); }
+	}
+
+	@keyframes pulse-slow {
+		0%, 100% { opacity: 0.3; }
+		50% { opacity: 0.8; }
+	}
+
+	@keyframes blink {
+		0%, 50% { opacity: 1; }
+		51%, 100% { opacity: 0; }
+	}
+
+	/* Animation Classes */
+	.fade-in-up {
+		animation: fadeInUp 0.8s ease-out forwards;
+		opacity: 0;
+	}
+
+	.fade-in-left {
+		animation: fadeInLeft 0.8s ease-out forwards;
+		opacity: 0;
+	}
+
+	.fade-in-right {
+		animation: fadeInRight 0.8s ease-out forwards;
+		opacity: 0;
+	}
+
+	.scale-in {
+		animation: scaleIn 0.8s ease-out forwards;
+		opacity: 0;
+	}
+
+	.animate-fade-in {
+		animation: fadeInUp 0.6s ease-out;
+	}
+
+	/* Floating Elements */
+	.floating-icon {
+		animation: float 6s ease-in-out infinite;
+	}
+
+	.floating-icon.car {
+		animation-delay: 0s;
+	}
+
+	.floating-icon.shield {
+		animation-delay: 1s;
+	}
+
+	.floating-icon.money {
+		animation-delay: 2s;
+	}
+
+	.floating-icon.lightning {
+		animation-delay: 3s;
+	}
+
+	/* Typewriter Effect */
+	.typewriter-text {
+		border-right: 2px solid white;
+		white-space: nowrap;
+		overflow: hidden;
+		display: inline-block;
+	}
+
+	.cursor {
+		animation: blink 1s infinite;
+	}
+
+	/* Hover Effects */
+	.benefit-card:hover {
+		box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+	}
+
+	.gallery-item:hover img {
+		transform: scale(1.1);
+	}
+
+	.btn-primary:hover,
+	.btn-secondary:hover,
+	.btn-gift:hover,
+	.calculate-btn:hover {
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	}
+
+	/* Form Styles */
+	.form-select:focus,
+	.radio-option:focus-within {
+		outline: none;
+		transform: translateY(-2px);
+	}
+
+	.radio-option:hover {
+		border-color: #3b82f6;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.hero-content h1 {
+			font-size: 2.5rem;
+		}
+		
+		.section-header h2 {
+			font-size: 2rem;
+		}
+		
+		.benefits-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.gallery-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	/* Scroll Animations */
+	.scroll-animate {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: all 0.8s ease-out;
+	}
+
+	.scroll-animate.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	/* Custom Scrollbar */
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #f1f1f1;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		border-radius: 4px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+	}
+</style>
+
+<script>
+	// Typewriter Effect
+	document.addEventListener('DOMContentLoaded', function() {
+		const text = 'بیمه خودرو که به آن اعتماد کنید';
+		const typewriterElement = document.querySelector('.typewriter-text');
+		const cursor = document.querySelector('.cursor');
+		let i = 0;
+
+		function typeWriter() {
+			if (i < text.length) {
+				typewriterElement.textContent += text.charAt(i);
+				i++;
+				setTimeout(typeWriter, 100);
+			} else {
+				cursor.style.animation = 'blink 1s infinite';
+			}
+		}
+
+		setTimeout(typeWriter, 1000);
+	});
+
+	// Scroll Animations
+	const observerOptions = {
+		threshold: 0.1,
+		rootMargin: '0px 0px -50px 0px'
+	};
+
+	const observer = new IntersectionObserver(function(entries) {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.style.opacity = '1';
+				entry.target.style.transform = 'translateY(0)';
+			}
+		});
+	}, observerOptions);
+
+	// Observe elements for scroll animations
+	document.addEventListener('DOMContentLoaded', function() {
+		const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in');
+		
+		animatedElements.forEach(el => {
+			el.style.opacity = '0';
+			el.style.transform = 'translateY(30px)';
+			observer.observe(el);
+		});
+	});
+
+	// Counter Animation
+	function animateCounter(element) {
+		const target = parseInt(element.getAttribute('data-target'));
+		const suffix = element.getAttribute('data-suffix') || '';
+		const duration = 2000;
+		const increment = target / (duration / 16);
+		let current = 0;
+
+		const timer = setInterval(() => {
+			current += increment;
+			if (current >= target) {
+				current = target;
+				clearInterval(timer);
+			}
+			element.textContent = Math.floor(current).toLocaleString() + suffix;
+		}, 16);
+	}
+
+	// Observe counters
+	const counterObserver = new IntersectionObserver(function(entries) {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				animateCounter(entry.target);
+				counterObserver.unobserve(entry.target);
+			}
+		});
+	}, observerOptions);
+
+	document.addEventListener('DOMContentLoaded', function() {
+		const counters = document.querySelectorAll('.counter');
+		counters.forEach(counter => {
+			counterObserver.observe(counter);
+		});
+	});
+
+	// Smooth scrolling for navigation links
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+			const target = document.querySelector(this.getAttribute('href'));
+			if (target) {
+				target.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start'
+				});
+			}
+		});
+	});
+
+	// Form enhancements
+	document.addEventListener('DOMContentLoaded', function() {
+		const calculateBtn = document.querySelector('.calculate-btn');
+		if (calculateBtn) {
+			calculateBtn.addEventListener('click', function() {
+				// Add loading state
+				this.innerHTML = '<span class="loading">در حال محاسبه...</span>';
+				
+				// Simulate calculation
+				setTimeout(() => {
+					this.innerHTML = 'محاسبه قیمت';
+					alert('قیمت محاسبه شد! لطفاً با ما تماس بگیرید.');
+				}, 2000);
+			});
+		}
+	});
+</script> 
