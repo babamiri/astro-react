@@ -3,6 +3,6 @@
 /// <reference types="@types/react-dom" />
 
 declare module '*?client:load' {
-  const component: any;
+  const component: import('react').ComponentType<Record<string, unknown>>;
   export default component;
 } 

@@ -73,7 +73,7 @@ const SaaSSignup: React.FC<SaaSSignupProps> = ({ onSuccess, onError }) => {
       
       setSubmitted(true);
       onSuccess?.({ domain, planId });
-    } catch (err) {
+    } catch {
       const errorMsg = 'خطا در ثبت‌نام. لطفاً دوباره تلاش کنید.';
       setError(errorMsg);
       onError?.(errorMsg);
