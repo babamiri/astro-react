@@ -9,6 +9,7 @@ const { activeLink = '/' } = Astro.props;
     </div>
     <nav class="flex gap-6">
       <a href="/" class={`${activeLink === '/' ? 'text-orange-600 font-bold' : 'text-brown-600'} hover:text-orange-600`}>صفحه اصلی</a>
+      <a href="/landing-1" class={`${activeLink === '/landing-1' ? 'text-orange-600 font-bold' : 'text-brown-600'} hover:text-orange-600`}>لندینگ یک</a>
       <a href="/insurance" class={`${activeLink === '/insurance' ? 'text-orange-600 font-bold' : 'text-brown-600'} hover:text-orange-600`}>محاسبه بیمه</a>
       <a href="/blog" class={`${activeLink === '/blog' ? 'text-orange-600 font-bold' : 'text-brown-600'} hover:text-orange-600`}>بلاگ</a>
       <a href="#" class="text-brown-600 hover:text-orange-600">درباره ما</a>
