@@ -124,65 +124,69 @@ const InsuranceSelector: React.FC<InsuranceSelectorProps> = ({ onSelect }) => {
           </div>
         )}
 
-        {/* Insurance Types Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 touch-spacing">
-          {filteredInsuranceTypes.map(type => (
-            <div
-              key={type.id}
-              onClick={() => handleInsuranceSelect(type.id)}
-              className={`bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105 animate-fade-in ${
-                !type.active ? 'opacity-60' : ''
-              } ${loading ? 'pointer-events-none' : ''}`}
-              style={{ borderTop: `4px solid ${type.color}` }}
-            >
-              <div className="p-4 md:p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="text-3xl md:text-4xl">{type.icon}</div>
-                  {!type.active && (
-                    <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
-                      به زودی
-                    </span>
-                  )}
-                </div>
+        {/* Insurance Types Grid - Contained within bordered container */}
+        <div className="selection-container p-6 md:p-8 animate-fade-in">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            {filteredInsuranceTypes.map(type => (
+              <div
+                key={type.id}
+                onClick={() => handleInsuranceSelect(type.id)}
+                className={`group selection-card p-4 md:p-6 animate-fade-in ${
+                  !type.active ? 'opacity-60' : ''
+                } ${loading ? 'pointer-events-none' : ''}`}
+              >
+                {/* Hover overlay effect */}
+                <div className="absolute inset-0 bg-blue-500 bg-opacity-0 group-hover:bg-opacity-5 rounded-xl transition-all duration-300"></div>
                 
-                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
-                  {type.title}
-                </h3>
-                
-                <p className="text-gray-600 mb-4 text-sm md:text-base leading-relaxed">
-                  {type.description}
-                </p>
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-xs md:text-sm text-gray-500 flex items-center gap-1">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    {type.estimatedTime}
-                  </span>
-                  <button
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 touch-target ${
-                      type.active
-                        ? 'bg-blue-500 text-white hover:bg-blue-600 hover:scale-105'
-                        : 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                    }`}
-                    disabled={!type.active}
-                  >
-                    {loading ? (
-                      <div className="flex items-center gap-2">
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                        <span>بارگذاری...</span>
-                      </div>
-                    ) : type.active ? (
-                      'شروع محاسبه'
-                    ) : (
-                      'غیرفعال'
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="text-3xl md:text-4xl group-hover:scale-110 transition-transform duration-300">{type.icon}</div>
+                    {!type.active && (
+                      <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">
+                        به زودی
+                      </span>
                     )}
-                  </button>
+                  </div>
+                  
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-700 mb-2 transition-colors duration-300">
+                    {type.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 group-hover:text-gray-700 mb-4 text-sm md:text-base leading-relaxed transition-colors duration-300">
+                    {type.description}
+                  </p>
+                  
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs md:text-sm text-gray-500 group-hover:text-gray-600 flex items-center gap-1 transition-colors duration-300">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {type.estimatedTime}
+                    </span>
+                    <button
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 touch-target ${
+                        type.active
+                          ? 'bg-blue-500 text-white hover:bg-blue-600 group-hover:scale-105'
+                          : 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                      }`}
+                      disabled={!type.active}
+                    >
+                      {loading ? (
+                        <div className="flex items-center gap-2">
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                          <span>بارگذاری...</span>
+                        </div>
+                      ) : type.active ? (
+                        'شروع محاسبه'
+                      ) : (
+                        'غیرفعال'
+                      )}
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Loading Overlay */}

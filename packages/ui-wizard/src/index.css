@@ -4,8 +4,13 @@
 
 /* RTL and Persian Language Support */
 @layer base {
+  :root {
+    --color-primary: theme('colors.orange.500');
+    --color-secondary: theme('colors.brown.300');
+  }
+
   * {
-    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+    font-family: 'Vazirmatn', 'Tahoma', 'Arial', sans-serif;
   }
   
   html {
@@ -16,11 +21,16 @@
   body {
     direction: rtl;
     text-align: right;
-    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+    font-family: 'Vazirmatn', 'Tahoma', 'Arial', sans-serif;
     line-height: 1.6;
+    @apply bg-brown-100 text-gray-800;
     /* بهبود scrolling در موبایل */
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
+  }
+
+  h1, h2, h3 {
+    @apply text-orange-700 font-bold;
   }
   
   /* LTR elements */
@@ -42,17 +52,17 @@
   }
 }
 
-/* Custom Components */
+/* Custom Components using Design Tokens */
 @layer components {
   .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 px-8 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg;
+    @apply bg-orange-500 hover:bg-orange-600 text-brown-100 font-bold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
     /* Touch-friendly minimum size */
     min-height: 48px;
     min-width: 120px;
   }
   
   .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-4 px-8 rounded-xl transition-all duration-200;
+    @apply bg-brown-200 hover:bg-brown-300 text-orange-800 font-medium py-3 px-6 rounded-lg transition-all duration-200;
     min-height: 48px;
     min-width: 120px;
   }
@@ -62,27 +72,51 @@
   }
   
   .form-input {
-    @apply w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200;
     min-height: 48px;
   }
   
   .option-button {
-    @apply w-full p-5 border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all duration-200 text-right cursor-pointer;
+    @apply w-full p-4 border-2 border-gray-300 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all duration-200 text-right cursor-pointer bg-white shadow-sm;
     min-height: 64px;
     /* Touch feedback */
     -webkit-tap-highlight-color: rgba(59, 130, 246, 0.1);
   }
   
   .option-button:hover {
-    @apply transform translate-y-[-2px] shadow-lg;
+    @apply transform translate-y-[-2px] shadow-lg border-blue-400;
   }
   
   .option-button:active {
-    @apply transform translate-y-[0px] shadow-md;
+    @apply transform translate-y-[0px] shadow-md border-blue-500 bg-blue-100;
+  }
+  
+  /* Selection cards styling */
+  .selection-card {
+    @apply bg-gray-50 hover:bg-blue-50 rounded-xl border-2 border-gray-200 hover:border-blue-300 transition-all duration-300 cursor-pointer relative overflow-hidden;
+    /* Subtle shadow on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .selection-card:hover {
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  .selection-card:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  }
+  
+  /* Container for selection cards */
+  .selection-container {
+    @apply bg-white rounded-2xl border-2 border-gray-200 shadow-lg;
+    /* Subtle inner shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
   
   .selected-chip {
-    @apply inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm hover:bg-blue-200 transition-colors duration-200 cursor-pointer;
+    @apply inline-flex items-center px-3 py-2 bg-orange-100 text-orange-800 rounded-full text-sm hover:bg-orange-200 transition-colors duration-200 cursor-pointer;
     min-height: 36px;
   }
   
@@ -91,16 +125,7 @@
   }
   
   .progress-fill {
-    @apply h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded-full transition-all duration-500 ease-out;
-  }
-  
-  /* Floating Action Button */
-  .fab {
-    @apply fixed bottom-6 right-6 w-16 h-16 bg-blue-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50;
-  }
-  
-  .fab:hover {
-    @apply transform scale-110;
+    @apply h-full bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transition-all duration-500 ease-out;
   }
   
   /* Mobile-first touch improvements */
@@ -133,7 +158,7 @@
   }
 }
 
-/* Animations */
+/* Animations using Tailwind utilities */
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 0.5s ease-in-out;
@@ -206,7 +231,7 @@
   
   .btn-primary,
   .btn-secondary {
-    @apply py-4 px-6 text-base w-full;
+    @apply py-3 px-4 text-base w-full;
   }
   
   /* Text size adjustments */
@@ -236,7 +261,7 @@
 /* Touch Device Optimizations */
 @media (hover: none) and (pointer: coarse) {
   .option-button:hover {
-    @apply transform-none shadow-md;
+    @apply transform-none shadow-md border-gray-300;
   }
   
   .option-button:active {
@@ -247,10 +272,6 @@
 /* Print Styles */
 @media print {
   .no-print {
-    display: none !important;
-  }
-  
-  .fab {
     display: none !important;
   }
   

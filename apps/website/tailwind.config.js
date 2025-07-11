@@ -1,9 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx}",
     "./public/**/*.html",
-    "../../packages/ui-saas-signup/src/**/*.{js,jsx,ts,tsx}"
+    "../../packages/ui-saas-signup/src/**/*.{js,jsx,ts,tsx}",
+    "../../packages/ui-wizard/src/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
     extend: {
@@ -29,6 +30,7 @@ export default {
           300: '#cda37a',
           400: '#b8834d',
           500: '#9e6b3a',
+          600: '#a66f44',
         },
       },
     },

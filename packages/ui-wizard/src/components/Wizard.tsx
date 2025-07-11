@@ -385,12 +385,33 @@ const DynamicWizard: React.FC<DynamicWizardProps> = ({ insuranceType, configFile
           </div>
           
           <SelectedItems 
-            items={selectedItems} 
+            selectedItems={selectedItems.map(item => ({
+              stepId: item.id,
+              stepTitle: item.label.split(': ')[0],
+              selectedOption: { label: item.label.split(': ')[1], value: item.value }
+            }))}
             onRemoveItem={handleRemoveItem}
+            isVisible={selectedItems.length > 0}
           />
           <Result 
-            formData={formData}
-            premium={calculatePremium()}
+            result={{
+              totalPrice: calculatePremium(),
+              breakdown: [
+                {
+                  item: 'بیمه‌نامه',
+                  price: calculatePremium(),
+                  description: 'قیمت کل بیمه بر اساس انتخاب‌های شما'
+                }
+              ],
+              coverage: 'پوشش کامل',
+              recommendations: ['بررسی شرایط بیمه‌نامه', 'مقایسه با سایر شرکت‌ها']
+            }}
+            onRestart={() => {
+              setCurrentStepOrder(1);
+              setFormData({});
+              setSelectedItems([]);
+              setCompletedSteps([]);
+            }}
           />
         </div>
       </div>
@@ -500,8 +521,13 @@ const DynamicWizard: React.FC<DynamicWizardProps> = ({ insuranceType, configFile
           {/* Content Area */}
           <div className="p-4 md:p-6">
             <SelectedItems 
-              items={selectedItems} 
+              selectedItems={selectedItems.map(item => ({
+                stepId: item.id,
+                stepTitle: item.label.split(': ')[0],
+                selectedOption: { label: item.label.split(': ')[1], value: item.value }
+              }))}
               onRemoveItem={handleRemoveItem}
+              isVisible={selectedItems.length > 0}
             />
 
             <div className="animate-slide-in">
