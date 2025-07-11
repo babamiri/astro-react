@@ -1,0 +1,271 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "title": "ویزارد محاسبه بیمه پزشکان",
+    "description": "فرم محاسبه حق بیمه مسئولیت حرفه‌ای پزشکان",
+    "totalSteps": 11,
+    "estimatedTime": "6-8 دقیقه"
+  },
+  "navigation": {
+    "type": "order_based",
+    "startStep": 1,
+    "endStep": "result"
+  },
+  "steps": [
+    {
+      "id": "medical_specialty",
+      "title": "تخصص پزشکی",
+      "order": 1,
+      "type": "single_select",
+      "required": true,
+      "helpText": "تخصص پزشکی بر روی ریسک و قیمت بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "general", "label": "پزشک عمومی", "value": "general", "description": "طب عمومی و خانواده" },
+        { "id": "internal", "label": "داخلی", "value": "internal", "description": "طب داخلی" },
+        { "id": "surgery", "label": "جراحی عمومی", "value": "surgery", "description": "جراحی عمومی" },
+        { "id": "orthopedic", "label": "ارتوپدی", "value": "orthopedic", "description": "جراحی استخوان" },
+        { "id": "cardiology", "label": "قلب", "value": "cardiology", "description": "قلب و عروق" },
+        { "id": "neurology", "label": "مغز و اعصاب", "value": "neurology", "description": "نورولوژی" },
+        { "id": "gynecology", "label": "زنان", "value": "gynecology", "description": "زنان و زایمان" },
+        { "id": "pediatrics", "label": "اطفال", "value": "pediatrics", "description": "کودکان" },
+        { "id": "anesthesia", "label": "بیهوشی", "value": "anesthesia", "description": "متخصص بیهوشی" },
+        { "id": "radiology", "label": "رادیولوژی", "value": "radiology", "description": "تصویربرداری" },
+        { "id": "dentistry", "label": "دندانپزشکی", "value": "dentistry", "description": "دندان و دهان" },
+        { "id": "other", "label": "سایر", "value": "other" }
+      ]
+    },
+    {
+      "id": "practice_type",
+      "title": "نوع فعالیت",
+      "order": 2,
+      "type": "single_select",
+      "required": true,
+      "helpText": "محل فعالیت بر روی ریسک تأثیر می‌گذارد",
+      "options": [
+        { "id": "private_clinic", "label": "مطب خصوصی", "value": "private_clinic", "description": "مطب شخصی" },
+        { "id": "hospital", "label": "بیمارستان", "value": "hospital", "description": "کار در بیمارستان" },
+        { "id": "group_practice", "label": "گروهی", "value": "group_practice", "description": "مطب گروهی" },
+        { "id": "emergency", "label": "اورژانس", "value": "emergency", "description": "بخش اورژانس" },
+        { "id": "surgery_center", "label": "مرکز جراحی", "value": "surgery_center", "description": "بیمارستان جراحی" },
+        { "id": "home_care", "label": "مراقبت منزل", "value": "home_care", "description": "ویزیت منزل" },
+        { "id": "telemedicine", "label": "تله‌مدیسین", "value": "telemedicine", "description": "ویزیت آنلاین" }
+      ]
+    },
+    {
+      "id": "experience_years",
+      "title": "سابقه کار",
+      "order": 3,
+      "type": "single_select",
+      "required": true,
+      "helpText": "سابقه کاری بر روی قیمت بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "0_2", "label": "0-2 سال", "value": "0_2", "description": "تازه فارغ التحصیل" },
+        { "id": "3_5", "label": "3-5 سال", "value": "3_5", "description": "کم تجربه" },
+        { "id": "6_10", "label": "6-10 سال", "value": "6_10", "description": "متوسط" },
+        { "id": "11_20", "label": "11-20 سال", "value": "11_20", "description": "باتجربه" },
+        { "id": "over_20", "label": "بیش از 20 سال", "value": "over_20", "description": "بسیار باتجربه" }
+      ]
+    },
+    {
+      "id": "patient_volume",
+      "title": "تعداد بیمار در ماه",
+      "order": 4,
+      "type": "single_select",
+      "required": true,
+      "helpText": "حجم بیماران بر روی ریسک تأثیر می‌گذارد",
+      "options": [
+        { "id": "low", "label": "کمتر از 50 نفر", "value": "low" },
+        { "id": "medium_low", "label": "50-100 نفر", "value": "medium_low" },
+        { "id": "medium", "label": "100-200 نفر", "value": "medium" },
+        { "id": "medium_high", "label": "200-300 نفر", "value": "medium_high" },
+        { "id": "high", "label": "300-500 نفر", "value": "high" },
+        { "id": "very_high", "label": "بیش از 500 نفر", "value": "very_high" }
+      ]
+    },
+    {
+      "id": "coverage_amount",
+      "title": "مبلغ پوشش",
+      "order": 5,
+      "type": "single_select",
+      "required": true,
+      "helpText": "حداکثر مبلغ پرداختی در هر حادثه",
+      "options": [
+        { "id": "basic", "label": "500 میلیون", "value": "basic" },
+        { "id": "standard", "label": "1 میلیارد", "value": "standard" },
+        { "id": "premium", "label": "2 میلیارد", "value": "premium" },
+        { "id": "gold", "label": "5 میلیارد", "value": "gold" },
+        { "id": "platinum", "label": "10 میلیارد", "value": "platinum" }
+      ]
+    },
+    {
+      "id": "high_risk_procedures",
+      "title": "اقدامات پرریسک",
+      "order": 6,
+      "type": "multiple_select",
+      "required": false,
+      "helpText": "اقدامات پرریسک که انجام می‌دهید",
+      "options": [
+        { "id": "major_surgery", "label": "جراحی بزرگ", "value": "major_surgery" },
+        { "id": "cardiac_surgery", "label": "جراحی قلب", "value": "cardiac_surgery" },
+        { "id": "brain_surgery", "label": "جراحی مغز", "value": "brain_surgery" },
+        { "id": "cosmetic_surgery", "label": "جراحی زیبایی", "value": "cosmetic_surgery" },
+        { "id": "emergency_surgery", "label": "جراحی اورژانسی", "value": "emergency_surgery" },
+        { "id": "obstetrics", "label": "زایمان و سزارین", "value": "obstetrics" },
+        { "id": "anesthesia_admin", "label": "تجویز بیهوشی", "value": "anesthesia_admin" },
+        { "id": "radiation", "label": "رادیوتراپی", "value": "radiation" },
+        { "id": "none", "label": "هیچ‌کدام", "value": "none" }
+      ]
+    },
+    {
+      "id": "hospital_affiliations",
+      "title": "وابستگی به بیمارستان",
+      "order": 7,
+      "type": "single_select",
+      "required": true,
+      "helpText": "تعداد بیمارستان‌هایی که در آن فعالیت دارید",
+      "options": [
+        { "id": "none", "label": "هیچ‌کدام", "value": "none", "description": "فقط مطب خصوصی" },
+        { "id": "one", "label": "یک بیمارستان", "value": "one" },
+        { "id": "two_three", "label": "2-3 بیمارستان", "value": "two_three" },
+        { "id": "multiple", "label": "بیش از 3 بیمارستان", "value": "multiple" }
+      ]
+    },
+    {
+      "id": "continuing_education",
+      "title": "آموزش مداوم",
+      "order": 8,
+      "type": "yes_no",
+      "required": true,
+      "helpText": "آیا در دوره‌های آموزش مداوم شرکت می‌کنید؟ (تخفیف دارد)",
+      "options": [
+        { "id": "yes", "label": "بله", "value": "yes" },
+        { "id": "no", "label": "خیر", "value": "no" }
+      ]
+    },
+    {
+      "id": "board_certification",
+      "title": "گواهی تخصص",
+      "order": 9,
+      "type": "yes_no",
+      "required": true,
+      "helpText": "آیا گواهی تخصص معتبر دارید؟ (تخفیف دارد)",
+      "options": [
+        { "id": "yes", "label": "بله", "value": "yes" },
+        { "id": "no", "label": "خیر", "value": "no" }
+      ]
+    },
+    {
+      "id": "previous_claims",
+      "title": "سابقه شکایت",
+      "order": 10,
+      "type": "yes_no",
+      "required": true,
+      "helpText": "آیا در 10 سال گذشته شکایت پزشکی داشته‌اید؟",
+      "options": [
+        { "id": "yes", "label": "بله", "value": "yes" },
+        { "id": "no", "label": "خیر", "value": "no" }
+      ]
+    },
+    {
+      "id": "claim_details",
+      "title": "جزئیات شکایت",
+      "order": 11,
+      "type": "single_select",
+      "required": true,
+      "showWhen": {
+        "field": "previous_claims",
+        "value": "yes"
+      },
+      "options": [
+        { "id": "minor", "label": "جزئی", "value": "minor", "description": "بدون پرداخت خسارت" },
+        { "id": "moderate", "label": "متوسط", "value": "moderate", "description": "خسارت کمتر از 100 میلیون" },
+        { "id": "major", "label": "شدید", "value": "major", "description": "خسارت بیش از 100 میلیون" },
+        { "id": "multiple", "label": "چندین مورد", "value": "multiple", "description": "بیش از 2 شکایت" }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "نتیجه محاسبه",
+      "order": 12,
+      "type": "result",
+      "required": false,
+      "apiConfig": {
+        "endpoint": "/api/medical-insurance/calculate",
+        "method": "POST"
+      }
+    }
+  ],
+  "calculationFormula": {
+    "basePremium": 2000000,
+    "specialtyMultipliers": {
+      "general": 1.0,
+      "internal": 1.2,
+      "surgery": 3.0,
+      "orthopedic": 2.5,
+      "cardiology": 2.8,
+      "neurology": 3.5,
+      "gynecology": 2.2,
+      "pediatrics": 1.5,
+      "anesthesia": 3.2,
+      "radiology": 1.8,
+      "dentistry": 1.3,
+      "other": 2.0
+    },
+    "practiceTypeMultipliers": {
+      "private_clinic": 1.0,
+      "hospital": 1.5,
+      "group_practice": 1.2,
+      "emergency": 2.5,
+      "surgery_center": 2.0,
+      "home_care": 1.8,
+      "telemedicine": 0.8
+    },
+    "experienceMultipliers": {
+      "0_2": 2.0,
+      "3_5": 1.5,
+      "6_10": 1.2,
+      "11_20": 1.0,
+      "over_20": 0.9
+    },
+    "volumeMultipliers": {
+      "low": 0.8,
+      "medium_low": 1.0,
+      "medium": 1.2,
+      "medium_high": 1.5,
+      "high": 1.8,
+      "very_high": 2.2
+    },
+    "coverageMultipliers": {
+      "basic": 1.0,
+      "standard": 1.8,
+      "premium": 3.0,
+      "gold": 5.5,
+      "platinum": 9.0
+    },
+    "riskProcedureMultipliers": {
+      "major_surgery": 1.5,
+      "cardiac_surgery": 2.0,
+      "brain_surgery": 2.5,
+      "cosmetic_surgery": 1.8,
+      "emergency_surgery": 2.2,
+      "obstetrics": 1.7,
+      "anesthesia_admin": 2.0,
+      "radiation": 1.6
+    },
+    "affiliationMultipliers": {
+      "none": 0.8,
+      "one": 1.0,
+      "two_three": 1.3,
+      "multiple": 1.6
+    },
+    "discounts": {
+      "continuing_education": 0.10,
+      "board_certification": 0.15
+    }
+  },
+  "errorMessages": {
+    "required": "این فیلد الزامی است",
+    "invalid": "مقدار وارد شده معتبر نیست",
+    "apiError": "خطا در دریافت اطلاعات. لطفاً دوباره تلاش کنید"
+  }
+} 

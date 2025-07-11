@@ -1,0 +1,223 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "title": "ویزارد محاسبه بیمه سفر",
+    "description": "فرم محاسبه حق بیمه سفرهای داخلی و خارجی",
+    "totalSteps": 9,
+    "estimatedTime": "3-5 دقیقه"
+  },
+  "navigation": {
+    "type": "order_based",
+    "startStep": 1,
+    "endStep": "result"
+  },
+  "steps": [
+    {
+      "id": "travel_type",
+      "title": "نوع سفر",
+      "order": 1,
+      "type": "single_select",
+      "required": true,
+      "helpText": "نوع سفر بر روی قیمت بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "domestic", "label": "داخلی", "value": "domestic", "description": "سفر در داخل کشور" },
+        { "id": "international", "label": "خارجی", "value": "international", "description": "سفر به کشورهای دیگر" }
+      ]
+    },
+    {
+      "id": "destination",
+      "title": "مقصد سفر",
+      "order": 2,
+      "type": "single_select",
+      "required": true,
+      "showWhen": {
+        "field": "travel_type",
+        "value": "international"
+      },
+      "helpText": "منطقه مقصد بر روی قیمت بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "europe", "label": "اروپا", "value": "europe", "description": "کشورهای اروپایی" },
+        { "id": "asia", "label": "آسیا", "value": "asia", "description": "کشورهای آسیایی" },
+        { "id": "america", "label": "آمریکا", "value": "america", "description": "کشورهای آمریکایی" },
+        { "id": "africa", "label": "آفریقا", "value": "africa", "description": "کشورهای آفریقایی" },
+        { "id": "oceania", "label": "اقیانوسیه", "value": "oceania", "description": "استرالیا و نیوزلند" }
+      ]
+    },
+    {
+      "id": "travel_duration",
+      "title": "مدت سفر",
+      "order": 3,
+      "type": "single_select",
+      "required": true,
+      "helpText": "مدت سفر بر روی قیمت بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "1_3_days", "label": "1-3 روز", "value": "1_3_days" },
+        { "id": "4_7_days", "label": "4-7 روز", "value": "4_7_days" },
+        { "id": "8_14_days", "label": "8-14 روز", "value": "8_14_days" },
+        { "id": "15_30_days", "label": "15-30 روز", "value": "15_30_days" },
+        { "id": "31_60_days", "label": "31-60 روز", "value": "31_60_days" },
+        { "id": "more_than_60", "label": "بیش از 60 روز", "value": "more_than_60" }
+      ]
+    },
+    {
+      "id": "traveler_count",
+      "title": "تعداد مسافران",
+      "order": 4,
+      "type": "single_select",
+      "required": true,
+      "options": [
+        { "id": "1", "label": "1 نفر", "value": "1" },
+        { "id": "2", "label": "2 نفر", "value": "2" },
+        { "id": "3", "label": "3 نفر", "value": "3" },
+        { "id": "4", "label": "4 نفر", "value": "4" },
+        { "id": "5_plus", "label": "5 نفر یا بیشتر", "value": "5_plus" }
+      ]
+    },
+    {
+      "id": "traveler_age",
+      "title": "سن مسافر اصلی",
+      "order": 5,
+      "type": "single_select",
+      "required": true,
+      "helpText": "سن مسافر بر روی قیمت بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "under_18", "label": "زیر 18 سال", "value": "under_18" },
+        { "id": "18_30", "label": "18-30 سال", "value": "18_30" },
+        { "id": "31_50", "label": "31-50 سال", "value": "31_50" },
+        { "id": "51_65", "label": "51-65 سال", "value": "51_65" },
+        { "id": "over_65", "label": "بالای 65 سال", "value": "over_65" }
+      ]
+    },
+    {
+      "id": "travel_purpose",
+      "title": "هدف سفر",
+      "order": 6,
+      "type": "single_select",
+      "required": true,
+      "helpText": "هدف سفر بر روی پوشش بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "tourism", "label": "گردشگری", "value": "tourism", "description": "سفر تفریحی" },
+        { "id": "business", "label": "کاری", "value": "business", "description": "سفر تجاری" },
+        { "id": "medical", "label": "درمانی", "value": "medical", "description": "سفر برای درمان" },
+        { "id": "education", "label": "تحصیلی", "value": "education", "description": "سفر برای تحصیل" },
+        { "id": "sports", "label": "ورزشی", "value": "sports", "description": "سفر ورزشی" },
+        { "id": "other", "label": "سایر", "value": "other" }
+      ]
+    },
+    {
+      "id": "coverage_type",
+      "title": "نوع پوشش",
+      "order": 7,
+      "type": "single_select",
+      "required": true,
+      "helpText": "نوع پوشش بیمه‌نامه را انتخاب کنید",
+      "options": [
+        { "id": "basic", "label": "پایه", "value": "basic", "description": "پوشش درمانی ساده" },
+        { "id": "standard", "label": "استاندارد", "value": "standard", "description": "پوشش درمانی + کنسلی" },
+        { "id": "premium", "label": "طلایی", "value": "premium", "description": "پوشش کامل + بار" },
+        { "id": "vip", "label": "VIP", "value": "vip", "description": "پوشش کامل + خدمات ویژه" }
+      ]
+    },
+    {
+      "id": "medical_history",
+      "title": "سابقه بیماری",
+      "order": 8,
+      "type": "yes_no",
+      "required": true,
+      "helpText": "آیا سابقه بیماری خاص دارید؟",
+      "options": [
+        { "id": "yes", "label": "بله", "value": "yes" },
+        { "id": "no", "label": "خیر", "value": "no" }
+      ]
+    },
+    {
+      "id": "medical_conditions",
+      "title": "نوع بیماری",
+      "order": 9,
+      "type": "multiple_select",
+      "required": true,
+      "showWhen": {
+        "field": "medical_history",
+        "value": "yes"
+      },
+      "helpText": "بیماری‌های موجود را انتخاب کنید",
+      "options": [
+        { "id": "diabetes", "label": "دیابت", "value": "diabetes" },
+        { "id": "heart_disease", "label": "بیماری قلبی", "value": "heart_disease" },
+        { "id": "high_blood_pressure", "label": "فشار خون", "value": "high_blood_pressure" },
+        { "id": "asthma", "label": "آسم", "value": "asthma" },
+        { "id": "cancer", "label": "سرطان", "value": "cancer" },
+        { "id": "pregnancy", "label": "بارداری", "value": "pregnancy" },
+        { "id": "other", "label": "سایر", "value": "other" }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "نتیجه محاسبه",
+      "order": 10,
+      "type": "result",
+      "required": false,
+      "apiConfig": {
+        "endpoint": "/api/travel-insurance/calculate",
+        "method": "POST"
+      }
+    }
+  ],
+  "calculationFormula": {
+    "basePremium": 200000,
+    "travelTypeMultipliers": {
+      "domestic": 1.0,
+      "international": 2.5
+    },
+    "destinationMultipliers": {
+      "europe": 1.8,
+      "asia": 1.2,
+      "america": 2.0,
+      "africa": 1.5,
+      "oceania": 1.7
+    },
+    "durationMultipliers": {
+      "1_3_days": 1.0,
+      "4_7_days": 1.5,
+      "8_14_days": 2.0,
+      "15_30_days": 3.0,
+      "31_60_days": 4.5,
+      "more_than_60": 6.0
+    },
+    "ageMultipliers": {
+      "under_18": 0.8,
+      "18_30": 1.0,
+      "31_50": 1.2,
+      "51_65": 1.5,
+      "over_65": 2.0
+    },
+    "purposeMultipliers": {
+      "tourism": 1.0,
+      "business": 1.1,
+      "medical": 1.8,
+      "education": 1.2,
+      "sports": 1.5,
+      "other": 1.3
+    },
+    "coverageMultipliers": {
+      "basic": 1.0,
+      "standard": 1.5,
+      "premium": 2.0,
+      "vip": 3.0
+    },
+    "medicalConditionMultipliers": {
+      "diabetes": 1.3,
+      "heart_disease": 1.5,
+      "high_blood_pressure": 1.2,
+      "asthma": 1.1,
+      "cancer": 2.0,
+      "pregnancy": 1.4,
+      "other": 1.3
+    }
+  },
+  "errorMessages": {
+    "required": "این فیلد الزامی است",
+    "invalid": "مقدار وارد شده معتبر نیست",
+    "apiError": "خطا در دریافت اطلاعات. لطفاً دوباره تلاش کنید"
+  }
+} 

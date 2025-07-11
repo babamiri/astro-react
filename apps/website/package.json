@@ -13,6 +13,7 @@
   "dependencies": {
     "@astro-react/ui-button": "workspace:*",
     "@astro-react/ui-saas-signup": "workspace:*",
+    "@astro-react/ui-wizard": "workspace:*",
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/react": "^4.3.0",

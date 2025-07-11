@@ -1,0 +1,365 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "title": "ویزارد محاسبه بیمه خودرو",
+    "description": "فرم محاسبه حق بیمه خودرو",
+    "totalSteps": 17,
+    "estimatedTime": "5-10 دقیقه"
+  },
+  "navigation": {
+    "type": "order_based",
+    "startStep": 1,
+    "endStep": "result"
+  },
+  "steps": [
+    {
+      "id": "vehicle_type",
+      "title": "نوع خودرو",
+      "order": 1,
+      "type": "single_select",
+      "required": true,
+      "apiConfig": {
+        "endpoint": "/api/vehicle-types",
+        "method": "GET"
+      },
+      "options": [
+        { "id": "sedan", "label": "سدان", "value": "sedan" },
+        { "id": "suv", "label": "SUV", "value": "suv" },
+        { "id": "hatchback", "label": "هاچ‌بک", "value": "hatchback" },
+        { "id": "pickup", "label": "وانت", "value": "pickup" },
+        { "id": "van", "label": "ون", "value": "van" },
+        { "id": "coupe", "label": "کوپه", "value": "coupe" },
+        { "id": "convertible", "label": "کابریوله", "value": "convertible" }
+      ]
+    },
+    {
+      "id": "vehicle_brand",
+      "title": "برند خودرو",
+      "order": 2,
+      "type": "single_select",
+      "required": true,
+      "apiConfig": {
+        "endpoint": "/api/vehicle-brands",
+        "method": "GET",
+        "params": {
+          "vehicle_type": "{vehicle_type}"
+        }
+      },
+      "options": [
+        { "id": "iran_khodro", "label": "ایران خودرو", "value": "iran_khodro" },
+        { "id": "saipa", "label": "سایپا", "value": "saipa" },
+        { "id": "peugeot", "label": "پژو", "value": "peugeot" },
+        { "id": "kia", "label": "کیا", "value": "kia" },
+        { "id": "hyundai", "label": "هیوندای", "value": "hyundai" },
+        { "id": "toyota", "label": "تویوتا", "value": "toyota" },
+        { "id": "nissan", "label": "نیسان", "value": "nissan" },
+        { "id": "mazda", "label": "مزدا", "value": "mazda" },
+        { "id": "chery", "label": "چری", "value": "chery" },
+        { "id": "geely", "label": "جیلی", "value": "geely" },
+        { "id": "other", "label": "سایر", "value": "other" }
+      ]
+    },
+    {
+      "id": "vehicle_model",
+      "title": "مدل خودرو",
+      "order": 3,
+      "type": "single_select",
+      "required": true,
+      "apiConfig": {
+        "endpoint": "/api/vehicle-models",
+        "method": "GET",
+        "params": {
+          "brand": "{vehicle_brand}"
+        }
+      },
+      "options": [
+        { "id": "samand", "label": "سمند", "value": "samand", "brand": "iran_khodro" },
+        { "id": "dena", "label": "دنا", "value": "dena", "brand": "iran_khodro" },
+        { "id": "runna", "label": "رانا", "value": "runna", "brand": "iran_khodro" },
+        { "id": "peugeot_206", "label": "پژو 206", "value": "peugeot_206", "brand": "peugeot" },
+        { "id": "peugeot_207", "label": "پژو 207", "value": "peugeot_207", "brand": "peugeot" },
+        { "id": "peugeot_405", "label": "پژو 405", "value": "peugeot_405", "brand": "peugeot" },
+        { "id": "pride", "label": "پراید", "value": "pride", "brand": "saipa" },
+        { "id": "tiba", "label": "تیبا", "value": "tiba", "brand": "saipa" },
+        { "id": "quick", "label": "کوئیک", "value": "quick", "brand": "saipa" },
+        { "id": "rio", "label": "ریو", "value": "rio", "brand": "kia" },
+        { "id": "cerato", "label": "سراتو", "value": "cerato", "brand": "kia" },
+        { "id": "other_model", "label": "سایر مدل‌ها", "value": "other_model" }
+      ]
+    },
+    {
+      "id": "vehicle_year",
+      "title": "سال تولید",
+      "order": 4,
+      "type": "single_select",
+      "required": true,
+      "validation": {
+        "required": true,
+        "message": "انتخاب سال تولید الزامی است"
+      },
+      "options": [
+        { "id": "1403", "label": "1403", "value": "1403" },
+        { "id": "1402", "label": "1402", "value": "1402" },
+        { "id": "1401", "label": "1401", "value": "1401" },
+        { "id": "1400", "label": "1400", "value": "1400" },
+        { "id": "1399", "label": "1399", "value": "1399" },
+        { "id": "1398", "label": "1398", "value": "1398" },
+        { "id": "1397", "label": "1397", "value": "1397" },
+        { "id": "older", "label": "قدیمی‌تر", "value": "older" }
+      ]
+    },
+    {
+      "id": "vehicle_fuel_type",
+      "title": "نوع سوخت",
+      "order": 5,
+      "type": "single_select",
+      "required": true,
+      "helpText": "نوع سوخت بر روی قیمت بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "petrol", "label": "بنزین", "value": "petrol" },
+        { "id": "diesel", "label": "دیزل", "value": "diesel" },
+        { "id": "hybrid", "label": "هیبرید", "value": "hybrid" },
+        { "id": "electric", "label": "برقی", "value": "electric" },
+        { "id": "cng", "label": "دوگانه سوز", "value": "cng" }
+      ]
+    },
+    {
+      "id": "usage_type",
+      "title": "نوع استفاده",
+      "order": 6,
+      "type": "single_select",
+      "required": true,
+      "helpText": "نوع استفاده خودرو بر روی قیمت بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "personal", "label": "شخصی", "value": "personal", "description": "استفاده شخصی و خانوادگی" },
+        { "id": "taxi", "label": "تاکسی", "value": "taxi", "description": "استفاده تاکسی و اسنپ" },
+        { "id": "commercial", "label": "تجاری", "value": "commercial", "description": "استفاده تجاری و باربری" },
+        { "id": "rental", "label": "اجاره‌ای", "value": "rental", "description": "استفاده اجاره‌ای" }
+      ]
+    },
+    {
+      "id": "has_previous_insurance",
+      "title": "آیا بیمه‌نامه قبلی دارید؟",
+      "order": 7,
+      "type": "yes_no",
+      "required": true,
+      "helpText": "داشتن بیمه‌نامه قبلی تخفیف در نظر گرفته می‌شود",
+      "options": [
+        { "id": "yes", "label": "بله", "value": "yes" },
+        { "id": "no", "label": "خیر", "value": "no" }
+      ]
+    },
+    {
+      "id": "previous_insurance_company",
+      "title": "شرکت بیمه قبلی",
+      "order": 8,
+      "type": "single_select",
+      "required": true,
+      "showWhen": {
+        "field": "has_previous_insurance",
+        "value": "yes"
+      },
+      "options": [
+        { "id": "iran", "label": "بیمه ایران", "value": "iran" },
+        { "id": "asia", "label": "بیمه آسیا", "value": "asia" },
+        { "id": "parsian", "label": "بیمه پارسیان", "value": "parsian" },
+        { "id": "dana", "label": "بیمه دانا", "value": "dana" },
+        { "id": "alborz", "label": "بیمه البرز", "value": "alborz" },
+        { "id": "pasargad", "label": "بیمه پاسارگاد", "value": "pasargad" },
+        { "id": "mellat", "label": "بیمه ملت", "value": "mellat" },
+        { "id": "other", "label": "سایر", "value": "other" }
+      ]
+    },
+    {
+      "id": "insurance_start_date",
+      "title": "تاریخ شروع بیمه‌نامه قبلی",
+      "order": 9,
+      "type": "date",
+      "required": true,
+      "showWhen": {
+        "field": "has_previous_insurance",
+        "value": "yes"
+      },
+      "validation": {
+        "required": true,
+        "message": "تاریخ شروع بیمه‌نامه الزامی است"
+      }
+    },
+    {
+      "id": "insurance_end_date",
+      "title": "تاریخ پایان بیمه‌نامه قبلی",
+      "order": 10,
+      "type": "date",
+      "required": true,
+      "showWhen": {
+        "field": "has_previous_insurance",
+        "value": "yes"
+      },
+      "validation": {
+        "required": true,
+        "message": "تاریخ پایان بیمه‌نامه الزامی است"
+      }
+    },
+    {
+      "id": "discount_percentage",
+      "title": "درصد تخفیف",
+      "order": 11,
+      "type": "single_select",
+      "required": true,
+      "showWhen": {
+        "field": "has_previous_insurance",
+        "value": "yes"
+      },
+      "helpText": "درصد تخفیف بر اساس عدم خسارت محاسبه می‌شود",
+      "options": [
+        { "id": "0", "label": "0 درصد", "value": "0" },
+        { "id": "10", "label": "10 درصد", "value": "10" },
+        { "id": "20", "label": "20 درصد", "value": "20" },
+        { "id": "30", "label": "30 درصد", "value": "30" },
+        { "id": "40", "label": "40 درصد", "value": "40" },
+        { "id": "50", "label": "50 درصد", "value": "50" },
+        { "id": "60", "label": "60 درصد", "value": "60" }
+      ]
+    },
+    {
+      "id": "has_damage_history",
+      "title": "آیا خسارت دریافت کرده‌اید؟",
+      "order": 12,
+      "type": "yes_no",
+      "required": true,
+      "showWhen": {
+        "field": "has_previous_insurance",
+        "value": "yes"
+      },
+      "helpText": "خسارت قبلی بر روی قیمت بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "yes", "label": "بله", "value": "yes" },
+        { "id": "no", "label": "خیر", "value": "no" }
+      ]
+    },
+    {
+      "id": "damage_count_financial",
+      "title": "تعداد خسارت مالی",
+      "order": 13,
+      "type": "single_select",
+      "required": true,
+      "showWhen": {
+        "field": "has_damage_history",
+        "value": "yes"
+      },
+      "options": [
+        { "id": "0", "label": "0 مورد", "value": "0" },
+        { "id": "1", "label": "1 مورد", "value": "1" },
+        { "id": "2", "label": "2 مورد", "value": "2" },
+        { "id": "3", "label": "3 مورد", "value": "3" },
+        { "id": "4", "label": "4 مورد", "value": "4" },
+        { "id": "5", "label": "5 مورد", "value": "5" },
+        { "id": "more", "label": "بیشتر از 5 مورد", "value": "more" }
+      ]
+    },
+    {
+      "id": "damage_count_personal",
+      "title": "تعداد خسارت جانی",
+      "order": 14,
+      "type": "single_select",
+      "required": true,
+      "showWhen": {
+        "field": "has_damage_history",
+        "value": "yes"
+      },
+      "options": [
+        { "id": "0", "label": "0 مورد", "value": "0" },
+        { "id": "1", "label": "1 مورد", "value": "1" },
+        { "id": "2", "label": "2 مورد", "value": "2" },
+        { "id": "3", "label": "3 مورد", "value": "3" },
+        { "id": "more", "label": "بیشتر از 3 مورد", "value": "more" }
+      ]
+    },
+    {
+      "id": "coverage_type",
+      "title": "نوع پوشش",
+      "order": 15,
+      "type": "single_select",
+      "required": true,
+      "helpText": "نوع پوشش بیمه‌نامه را انتخاب کنید",
+      "options": [
+        { "id": "third_party", "label": "شخص ثالث", "value": "third_party", "description": "پوشش حداقل قانونی" },
+        { "id": "comprehensive", "label": "بدنه", "value": "comprehensive", "description": "پوشش بدنه خودرو" },
+        { "id": "full", "label": "کامل", "value": "full", "description": "پوشش کامل شخص ثالث + بدنه" }
+      ]
+    },
+    {
+      "id": "driver_age",
+      "title": "سن راننده اصلی",
+      "order": 16,
+      "type": "single_select",
+      "required": true,
+      "helpText": "سن راننده اصلی بر روی قیمت بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "18-25", "label": "18-25 سال", "value": "18-25" },
+        { "id": "26-35", "label": "26-35 سال", "value": "26-35" },
+        { "id": "36-45", "label": "36-45 سال", "value": "36-45" },
+        { "id": "46-55", "label": "46-55 سال", "value": "46-55" },
+        { "id": "56-65", "label": "56-65 سال", "value": "56-65" },
+        { "id": "over-65", "label": "بالای 65 سال", "value": "over-65" }
+      ]
+    },
+    {
+      "id": "driver_experience",
+      "title": "سابقه رانندگی",
+      "order": 17,
+      "type": "single_select",
+      "required": true,
+      "helpText": "سابقه رانندگی بر روی قیمت بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "0-2", "label": "0-2 سال", "value": "0-2" },
+        { "id": "3-5", "label": "3-5 سال", "value": "3-5" },
+        { "id": "6-10", "label": "6-10 سال", "value": "6-10" },
+        { "id": "11-15", "label": "11-15 سال", "value": "11-15" },
+        { "id": "16-20", "label": "16-20 سال", "value": "16-20" },
+        { "id": "over-20", "label": "بیش از 20 سال", "value": "over-20" }
+      ]
+    },
+    {
+      "id": "city",
+      "title": "شهر محل سکونت",
+      "order": 18,
+      "type": "single_select",
+      "required": true,
+      "helpText": "شهر محل سکونت بر روی قیمت بیمه تأثیر می‌گذارد",
+      "apiConfig": {
+        "endpoint": "/api/cities",
+        "method": "GET"
+      },
+      "options": [
+        { "id": "tehran", "label": "تهران", "value": "tehran", "zone": "1" },
+        { "id": "isfahan", "label": "اصفهان", "value": "isfahan", "zone": "2" },
+        { "id": "mashhad", "label": "مشهد", "value": "mashhad", "zone": "2" },
+        { "id": "shiraz", "label": "شیراز", "value": "shiraz", "zone": "2" },
+        { "id": "tabriz", "label": "تبریز", "value": "tabriz", "zone": "2" },
+        { "id": "karaj", "label": "کرج", "value": "karaj", "zone": "2" },
+        { "id": "qom", "label": "قم", "value": "qom", "zone": "3" },
+        { "id": "ahvaz", "label": "اهواز", "value": "ahvaz", "zone": "3" },
+        { "id": "kerman", "label": "کرمان", "value": "kerman", "zone": "3" },
+        { "id": "yazd", "label": "یزد", "value": "yazd", "zone": "3" },
+        { "id": "other", "label": "سایر شهرها", "value": "other", "zone": "4" }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "نتیجه محاسبه",
+      "order": 19,
+      "type": "result",
+      "required": false,
+      "apiConfig": {
+        "endpoint": "/api/insurance/calculate",
+        "method": "POST"
+      }
+    }
+  ],
+  "errorMessages": {
+    "required": "این فیلد الزامی است",
+    "invalid": "مقدار وارد شده معتبر نیست",
+    "apiError": "خطا در دریافت اطلاعات. لطفاً دوباره تلاش کنید"
+  }
+} 

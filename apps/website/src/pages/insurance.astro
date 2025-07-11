@@ -1,4 +1,10 @@
 ---
-// Redirect to the landing-1 page
-return Astro.redirect('/landing-1');
---- 
+import Layout from '../layouts/Layout.astro';
+import { InsuranceApp } from '@astro-react/ui-wizard';
+---
+
+<Layout title="محاسبه آنلاین بیمه" description="محاسبه دقیق و آنلاین انواع بیمه با چند کلیک ساده">
+  <div class="min-h-screen">
+    <InsuranceApp client:load />
+  </div>
+</Layout> 

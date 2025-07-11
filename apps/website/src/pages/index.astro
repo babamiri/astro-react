@@ -20,6 +20,24 @@ const features = [
     icon: '🔒'
   }
 ];
+
+const insuranceTypes = [
+  {
+    title: 'بیمه خودرو',
+    description: 'محاسبه حق بیمه خودرو با تمام عوامل مؤثر',
+    icon: '🚗'
+  },
+  {
+    title: 'بیمه آتش‌سوزی',
+    description: 'محاسبه بیمه آتش‌سوزی ساختمان و محتویات',
+    icon: '🔥'
+  },
+  {
+    title: 'بیمه مسافرتی',
+    description: 'محاسبه بیمه مسافرت داخلی و خارجی',
+    icon: '✈️'
+  }
+];
 ---
 
 <Layout title="صفحه اصلی" description="صفحه اصلی محصول فوق العاده ما - راه حلی نوآورانه برای نیازهای شما">
@@ -33,6 +51,34 @@ const features = [
         راه حل نوآورانه ما برای مشکل
       </p>
       <Button client:load text="همین حالا شروع کنید" />
+    </div>
+  </section>
+
+  <!-- Insurance Calculator Section -->
+  <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">محاسبه آنلاین بیمه</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          محاسبه دقیق و آنلاین انواع بیمه با چند کلیک ساده
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        {insuranceTypes.map((insurance) => (
+          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <div class="text-4xl mb-4 text-center">{insurance.icon}</div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">{insurance.title}</h3>
+            <p class="text-gray-600 text-center">{insurance.description}</p>
+          </div>
+        ))}
+      </div>
+      
+      <div class="text-center">
+        <a href="/insurance" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+          شروع محاسبه بیمه
+        </a>
+      </div>
     </div>
   </section>
 

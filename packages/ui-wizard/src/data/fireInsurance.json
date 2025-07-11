@@ -1,0 +1,236 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "title": "ویزارد محاسبه بیمه آتش سوزی",
+    "description": "فرم محاسبه حق بیمه آتش سوزی ساختمان و اموال",
+    "totalSteps": 12,
+    "estimatedTime": "3-5 دقیقه"
+  },
+  "navigation": {
+    "type": "order_based",
+    "startStep": 1,
+    "endStep": "result"
+  },
+  "steps": [
+    {
+      "id": "property_type",
+      "title": "نوع ملک",
+      "order": 1,
+      "type": "single_select",
+      "required": true,
+      "helpText": "نوع ملک بر روی قیمت بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "residential", "label": "مسکونی", "value": "residential", "description": "آپارتمان یا خانه مسکونی" },
+        { "id": "commercial", "label": "تجاری", "value": "commercial", "description": "مغازه، دفتر، رستوران" },
+        { "id": "industrial", "label": "صنعتی", "value": "industrial", "description": "کارخانه، انبار صنعتی" },
+        { "id": "office", "label": "اداری", "value": "office", "description": "ساختمان اداری" },
+        { "id": "warehouse", "label": "انبار", "value": "warehouse", "description": "انبار غیرصنعتی" }
+      ]
+    },
+    {
+      "id": "building_age",
+      "title": "سن ساختمان",
+      "order": 2,
+      "type": "single_select",
+      "required": true,
+      "helpText": "سن ساختمان بر روی ریسک آتش سوزی تأثیر می‌گذارد",
+      "options": [
+        { "id": "new", "label": "کمتر از 5 سال", "value": "new" },
+        { "id": "medium", "label": "5-15 سال", "value": "medium" },
+        { "id": "old", "label": "15-30 سال", "value": "old" },
+        { "id": "very_old", "label": "بیش از 30 سال", "value": "very_old" }
+      ]
+    },
+    {
+      "id": "building_materials",
+      "title": "مصالح ساختمان",
+      "order": 3,
+      "type": "single_select",
+      "required": true,
+      "helpText": "نوع مصالح ساختمان بر روی ریسک آتش سوزی تأثیر می‌گذارد",
+      "options": [
+        { "id": "concrete", "label": "بتن مسلح", "value": "concrete", "description": "مقاوم در برابر آتش" },
+        { "id": "brick", "label": "آجر و ملات", "value": "brick", "description": "مقاومت متوسط" },
+        { "id": "steel", "label": "فلزی", "value": "steel", "description": "مقاومت بالا" },
+        { "id": "wood", "label": "چوبی", "value": "wood", "description": "ریسک بالا" },
+        { "id": "mixed", "label": "ترکیبی", "value": "mixed", "description": "مخلوط مصالح" }
+      ]
+    },
+    {
+      "id": "property_area",
+      "title": "مساحت ملک",
+      "order": 4,
+      "type": "single_select",
+      "required": true,
+      "helpText": "مساحت ملک بر روی مبلغ بیمه تأثیر می‌گذارد",
+      "options": [
+        { "id": "small", "label": "کمتر از 100 متر", "value": "small" },
+        { "id": "medium", "label": "100-200 متر", "value": "medium" },
+        { "id": "large", "label": "200-500 متر", "value": "large" },
+        { "id": "very_large", "label": "بیش از 500 متر", "value": "very_large" }
+      ]
+    },
+    {
+      "id": "property_value",
+      "title": "ارزش ملک",
+      "order": 5,
+      "type": "single_select",
+      "required": true,
+      "helpText": "ارزش ملک برای تعیین مبلغ بیمه",
+      "options": [
+        { "id": "low", "label": "کمتر از 1 میلیارد", "value": "low" },
+        { "id": "medium", "label": "1-3 میلیارد", "value": "medium" },
+        { "id": "high", "label": "3-5 میلیارد", "value": "high" },
+        { "id": "very_high", "label": "بیش از 5 میلیارد", "value": "very_high" }
+      ]
+    },
+    {
+      "id": "location_risk",
+      "title": "ریسک محیطی",
+      "order": 6,
+      "type": "single_select",
+      "required": true,
+      "helpText": "محل قرارگیری ملک بر روی ریسک تأثیر می‌گذارد",
+      "options": [
+        { "id": "low_risk", "label": "کم ریسک", "value": "low_risk", "description": "مناطق مسکونی آرام" },
+        { "id": "medium_risk", "label": "متوسط", "value": "medium_risk", "description": "مناطق تجاری" },
+        { "id": "high_risk", "label": "پرریسک", "value": "high_risk", "description": "نزدیک جایگاه سوخت، کارخانه" },
+        { "id": "very_high_risk", "label": "بسیار پرریسک", "value": "very_high_risk", "description": "مناطق صنعتی خطرناک" }
+      ]
+    },
+    {
+      "id": "fire_safety_systems",
+      "title": "سیستم‌های ایمنی",
+      "order": 7,
+      "type": "multiple_select",
+      "required": false,
+      "helpText": "سیستم‌های ایمنی موجود در ملک (تخفیف دارد)",
+      "options": [
+        { "id": "smoke_detector", "label": "دتکتور دود", "value": "smoke_detector" },
+        { "id": "fire_extinguisher", "label": "کپسول آتش نشانی", "value": "fire_extinguisher" },
+        { "id": "sprinkler", "label": "سیستم اسپرینکلر", "value": "sprinkler" },
+        { "id": "alarm_system", "label": "سیستم اعلام حریق", "value": "alarm_system" },
+        { "id": "fire_door", "label": "درب ضد حریق", "value": "fire_door" },
+        { "id": "none", "label": "هیچ‌کدام", "value": "none" }
+      ]
+    },
+    {
+      "id": "electrical_system",
+      "title": "سیستم برق",
+      "order": 8,
+      "type": "single_select",
+      "required": true,
+      "helpText": "وضعیت سیستم برق بر روی ریسک آتش سوزی تأثیر می‌گذارد",
+      "options": [
+        { "id": "new", "label": "جدید و استاندارد", "value": "new" },
+        { "id": "good", "label": "خوب", "value": "good" },
+        { "id": "average", "label": "متوسط", "value": "average" },
+        { "id": "old", "label": "قدیمی", "value": "old" },
+        { "id": "dangerous", "label": "خطرناک", "value": "dangerous" }
+      ]
+    },
+    {
+      "id": "heating_system",
+      "title": "سیستم گرمایش",
+      "order": 9,
+      "type": "single_select",
+      "required": true,
+      "helpText": "نوع سیستم گرمایش بر روی ریسک تأثیر می‌گذارد",
+      "options": [
+        { "id": "central_gas", "label": "شوفاژ گازی", "value": "central_gas" },
+        { "id": "electric", "label": "برقی", "value": "electric" },
+        { "id": "gas_heater", "label": "بخاری گازی", "value": "gas_heater" },
+        { "id": "oil", "label": "نفتی", "value": "oil" },
+        { "id": "wood", "label": "چوبی", "value": "wood" },
+        { "id": "none", "label": "ندارد", "value": "none" }
+      ]
+    },
+    {
+      "id": "previous_incidents",
+      "title": "سابقه حوادث",
+      "order": 10,
+      "type": "yes_no",
+      "required": true,
+      "helpText": "آیا در 5 سال گذشته حادثه آتش سوزی داشته‌اید؟",
+      "options": [
+        { "id": "yes", "label": "بله", "value": "yes" },
+        { "id": "no", "label": "خیر", "value": "no" }
+      ]
+    },
+    {
+      "id": "incident_details",
+      "title": "جزئیات حادثه",
+      "order": 11,
+      "type": "single_select",
+      "required": true,
+      "showWhen": {
+        "field": "previous_incidents",
+        "value": "yes"
+      },
+      "options": [
+        { "id": "minor", "label": "جزئی", "value": "minor", "description": "خسارت کمتر از 100 میلیون" },
+        { "id": "moderate", "label": "متوسط", "value": "moderate", "description": "خسارت 100-500 میلیون" },
+        { "id": "major", "label": "شدید", "value": "major", "description": "خسارت بیش از 500 میلیون" }
+      ]
+    },
+    {
+      "id": "coverage_type",
+      "title": "نوع پوشش",
+      "order": 12,
+      "type": "single_select",
+      "required": true,
+      "helpText": "نوع پوشش بیمه‌نامه را انتخاب کنید",
+      "options": [
+        { "id": "basic", "label": "پایه", "value": "basic", "description": "پوشش آتش سوزی ساده" },
+        { "id": "comprehensive", "label": "جامع", "value": "comprehensive", "description": "پوشش آتش سوزی + انفجار" },
+        { "id": "premium", "label": "ویژه", "value": "premium", "description": "پوشش کامل شامل اموال داخلی" }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "نتیجه محاسبه",
+      "order": 13,
+      "type": "result",
+      "required": false,
+      "apiConfig": {
+        "endpoint": "/api/fire-insurance/calculate",
+        "method": "POST"
+      }
+    }
+  ],
+  "calculationFormula": {
+    "basePremium": 500000,
+    "propertyTypeMultipliers": {
+      "residential": 1.0,
+      "commercial": 1.5,
+      "industrial": 2.0,
+      "office": 1.2,
+      "warehouse": 1.8
+    },
+    "buildingAgeMultipliers": {
+      "new": 0.8,
+      "medium": 1.0,
+      "old": 1.3,
+      "very_old": 1.6
+    },
+    "materialMultipliers": {
+      "concrete": 0.7,
+      "brick": 1.0,
+      "steel": 0.8,
+      "wood": 2.0,
+      "mixed": 1.2
+    },
+    "safetySystemDiscounts": {
+      "smoke_detector": 0.05,
+      "fire_extinguisher": 0.10,
+      "sprinkler": 0.20,
+      "alarm_system": 0.15,
+      "fire_door": 0.10
+    }
+  },
+  "errorMessages": {
+    "required": "این فیلد الزامی است",
+    "invalid": "مقدار وارد شده معتبر نیست",
+    "apiError": "خطا در دریافت اطلاعات. لطفاً دوباره تلاش کنید"
+  }
+} 

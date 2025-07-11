@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "title": "سیستم مدیریت بیمه‌ها",
+    "description": "سیستم جامع محاسبه انواع بیمه"
+  },
+  "insuranceTypes": [
+    {
+      "id": "vehicle",
+      "title": "بیمه خودرو",
+      "description": "بیمه شخص ثالث و بدنه خودرو",
+      "icon": "🚗",
+      "category": "vehicle",
+      "configFile": "insuranceWizard.json",
+      "color": "#3B82F6",
+      "active": true,
+      "estimatedTime": "5-10 دقیقه"
+    },
+    {
+      "id": "fire",
+      "title": "بیمه آتش سوزی",
+      "description": "بیمه آتش سوزی ساختمان و اموال",
+      "icon": "🔥",
+      "category": "property",
+      "configFile": "fireInsurance.json",
+      "color": "#EF4444",
+      "active": true,
+      "estimatedTime": "3-5 دقیقه"
+    },
+    {
+      "id": "liability",
+      "title": "بیمه مسئولیت",
+      "description": "بیمه مسئولیت مدنی و حرفه‌ای",
+      "icon": "🛡️",
+      "category": "liability",
+      "configFile": "liabilityInsurance.json",
+      "color": "#10B981",
+      "active": true,
+      "estimatedTime": "4-6 دقیقه"
+    },
+    {
+      "id": "electronics",
+      "title": "بیمه وسایل الکترونیکی",
+      "description": "بیمه لپ تاپ، موبایل و دیگر وسایل الکترونیکی",
+      "icon": "📱",
+      "category": "property",
+      "configFile": "electronicsInsurance.json",
+      "color": "#8B5CF6",
+      "active": true,
+      "estimatedTime": "2-4 دقیقه"
+    },
+    {
+      "id": "medical",
+      "title": "بیمه پزشکان",
+      "description": "بیمه مسئولیت حرفه‌ای پزشکان",
+      "icon": "⚕️",
+      "category": "professional",
+      "configFile": "medicalInsurance.json",
+      "color": "#F59E0B",
+      "active": true,
+      "estimatedTime": "6-8 دقیقه"
+    },
+    {
+      "id": "travel",
+      "title": "بیمه سفر",
+      "description": "بیمه سفرهای داخلی و خارجی",
+      "icon": "✈️",
+      "category": "travel",
+      "configFile": "travelInsurance.json",
+      "color": "#06B6D4",
+      "active": true,
+      "estimatedTime": "3-5 دقیقه"
+    },
+    {
+      "id": "health",
+      "title": "بیمه سلامت",
+      "description": "بیمه درمان و سلامت",
+      "icon": "🏥",
+      "category": "health",
+      "configFile": "healthInsurance.json",
+      "color": "#DC2626",
+      "active": false,
+      "estimatedTime": "5-7 دقیقه"
+    },
+    {
+      "id": "life",
+      "title": "بیمه زندگی",
+      "description": "بیمه زندگی و عمر",
+      "icon": "💼",
+      "category": "life",
+      "configFile": "lifeInsurance.json",
+      "color": "#7C3AED",
+      "active": false,
+      "estimatedTime": "8-10 دقیقه"
+    }
+  ],
+  "categories": [
+    {
+      "id": "vehicle",
+      "title": "بیمه خودرو",
+      "description": "انواع بیمه مربوط به خودرو",
+      "icon": "🚗"
+    },
+    {
+      "id": "property",
+      "title": "بیمه اموال",
+      "description": "بیمه ساختمان و اموال شخصی",
+      "icon": "🏠"
+    },
+    {
+      "id": "liability",
+      "title": "بیمه مسئولیت",
+      "description": "انواع بیمه مسئولیت مدنی و حرفه‌ای",
+      "icon": "🛡️"
+    },
+    {
+      "id": "professional",
+      "title": "بیمه حرفه‌ای",
+      "description": "بیمه‌های مخصوص مشاغل",
+      "icon": "💼"
+    },
+    {
+      "id": "travel",
+      "title": "بیمه سفر",
+      "description": "بیمه‌های مربوط به سفر",
+      "icon": "✈️"
+    },
+    {
+      "id": "health",
+      "title": "بیمه سلامت",
+      "description": "بیمه‌های درمان و سلامت",
+      "icon": "🏥"
+    },
+    {
+      "id": "life",
+      "title": "بیمه زندگی",
+      "description": "بیمه‌های زندگی و عمر",
+      "icon": "💼"
+    }
+  ],
+  "settings": {
+    "defaultInsurance": "vehicle",
+    "showInactiveTypes": false,
+    "enableCategoryFilter": true,
+    "enableSearch": true
+  }
+} 
